@@ -3,205 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./asset/font/themify-icons-font/themify-icons/themify-icons.css"> 
-    <link rel="stylesheet" href="./asset/headerCss/header.css">
-    <link rel="stylesheet" href="./asset/sideBarCss/sidebar.css">
-    <link rel="stylesheet" href="./asset/mainContentCss/content.css">
+    <link rel="stylesheet" href="./asset/font/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="./asset/headerCss/header2.css">
+    <link rel="stylesheet" href="./asset/mainContentCss/content2.css">
     <link rel="stylesheet" href="./asset/footerCSS/footer.css">
     <link rel="stylesheet" href="./asset/css/base.css">
-    
-    <title>Document</title>
+    <title>trnag 2</title>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="row">
-            <div class="header__logo">
-                <img src="./asset/img/Logo (1).png" alt="" class="header__logo-img">
-            </div>
-            <div class="header__nav-bar flex">
-
-                <ul class="flex">
-                    <li><a href="">Liên Hệ</a></li>
-                    <li><a href="">Cựu Sinh Viên</a></li>
-                </ul>
-                  
-                <div class="header__nav-bar-noti">
-                    
-                    <i class="ti-bell header__nav-bar-noti-icon" ></i>
-                    <div class="header__nav-bar-noti-bar">   
+    <header>
+       
+        <div class="header-background ">
+             <div class="header2-top flex ">
+                <div class="header2-logo">
+                    <img src="./asset/img/z4516660249925_988cfc07b7275f3fd53e5efba9c578d0-removebg-preview.png" alt="">
+                </div>
+                <div class="header2-nav">
+                    <ul class="header2-nav__list flex">
+                        <li class="header2-nav__item scale"><a href="#">Trang chủ</a></li>
+                        <li class="header2-nav__item scale"><a href="#">Danh mục</a></li>
+                        <li class="header2-nav__item scale"><a href="#">Giới thiệu</a></li>
+                        <li class="header2-nav__item scale"><a href="#">Liên hệ</a></li>
+                        <li class="header2-nav__item scale"><a href="http://127.0.0.1:5500/">chỉnh sửa</a></li>
+                    </ul>
+                </div>
+                <div class="header2-logo">
+                    <img src="./asset/img/z4516660261248_4ed5a8e53476cfe9b0e4f2a00897578b-removebg-preview.png" alt="">
+                </div>
+             </div> 
+             <div class="header2-bottom">
+                <div class="row60 center-col">
+                    <div class="header2-title">
+                        <h1>BÁO CÁO KHÓA LUẬN</h1>
                     </div>
-                </div>
-                <div class="header__nav-bar-search">
-                    <i class="ti-search header__nav-bar-search-icon"></i>
-                    <input type="text" placeholder="tìm kiếm" class="search-input">
-                </div>
-            </div>
-        </div>
-        
-    </header>
-    <!-- NAV-BAR -->
-    <nav class="nav-bar">
-        <div class="row center">
-            <ul class="nav__list ">
-                <li class="nav__list-item">
-                    <a href="">Trang Chủ</a>
-                </li>
-                <li class="nav__list-item">
-                    <a href="">Khoa-Ban</a>
-                    <ul class="nav__sup-nap">
-                        <li class="nav__sup-nap-item"><a href="">Công nghệ thông tin</a></li>
-                        <li class="nav__sup-nap-item"><a href="">Luật</a></li>
-                        <li class="nav__sup-nap-item"><a href="">Quản trị kinh doanh</a></li>
-                    </ul>
-                </li>
-                <li class="nav__list-item"><a href="">Tin Tức</a></li>
-                <li class="nav__list-item"><a href="">Tuyển Sinh</a></li>
-                <li class="nav__list-item"><a href="">Đào Tạo</a></li>
-                <li class="nav__list-item"><a href="">Nghiên Cứu</a></li>
-                <li class="nav__list-item"><a href="">Phòng-Cơ Sở</a></li>
-            </ul>
-        </div>
-
-    </nav>
-    <!-- MAIN - CONTENT -->
-    <main class="content-wrapper margin-both-side ">
-        <div class="row magin-top-16 margin-bottom-64px">
-            <div class="side-bar col-20">
-                <div class="side-bar__options">
-                    <i class="ti-menu"></i>
-                    Danh mục
-                </div>
-                <div class="side-bar__option">
-                    <ul class="side-bar__option-list">
-                        <li class="side-bar__option-item scale">
-                            Tìm Kiếm
-                            <div class="sup-side-bar__option-item close center-col">
-                                <!-- <div class="search-box-wrapper"> -->
-                                    <div class="project-search-box">
-                                        <input type="text" required name="easayName" class="project-search" id="essay-search-box">
-                                        <span class="search-box-text">Tên Luận Văn</span>
-                                        <i class="search-box-i"></i>
-                                    </div>
-                                    <div class="project-search-box">
-                                        <input type="text" required name="name" class="project-search" id="essay-search-box">
-                                        <span class="search-box-text">Tên Tác Giả</span>
-                                        <i class="search-box-i"></i>
-                                    </div>
-                                    <div class="project-search-box">
-                                        <input type="text" required name="MSSV" class="project-search" id="essay-search-box">
-                                        <span class="search-box-text">Mã Số Sinh Viên</span>
-                                        <i class="search-box-i"></i>
-                                    </div>
-                                <!-- </div> -->
-                                <div class="form-close side-bar__option-close">
-                                    <i class="ti-angle-up"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="side-bar__option-item scale">
-                            Thêm khóa học 
-                            <div class="sup-side-bar__option-item close">
-                                <form action="POST" class="form" id="form-1">
-                                    <div class="form-group">
-                                        <label for="fullname" class="form-label">Tên đầy đủ</label>
-                                        <input id="fullname" name="fullname" placeholder="Nguyễn Văn A" class="form-control" type="text">
-                                        <span class="form-message"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="MSSV" class="form-label">Mã số sinh viên</label>
-                                        <input id="MSSV" name="MSSV" placeholder="2251052047" class="form-control" type="text">
-                                        <span class="form-message"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="projectname" class="form-label">Tên luận văn</label>
-                                        <input id="projectname" name="projectname" placeholder="Tên project" class="form-control" type="text">
-                                        <span class="form-message"></span>
-                                    </div>
-                                    <button class="form-submit"> Thêm </button>
-                                    <div class="form-close">
-                                        <i class="ti-angle-up"></i>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-            <div class="content col-80 ">
-                <div class="graduation-essays">
-                    <div class="info-bar flex">
-                        <div class="avatar"></div>
-                        <div class="code">
-                            MSSV
-                        </div>
-                        <div class="author">
-                            Tên
-                        </div>
-                        <div class="project">
-                            Tên project
+                    
+                    <div class="header2-search-box flex">
+                        <input type="text" required class="header2-search">
+                        <button class="header2-search-btn">
+                            <i class="ti-search"></i>
                             
-                        </div>
+                        </button>
                     </div>
-                    <div class="graduation-essays-list">
-                        <div class="graduation-essay-item-wrapper">
-                            <div class="graduation-essay-item flex">
-                                <div class="essay-item-img">
-                                    <div class="img"></div>
-                                </div>
-                                <div class="student-code">
-                                    <span>2251052047</span>
-                                </div>
-                                <div class="author-name">
-                                    <h3>Võ Văn Huy </h3>
-                                </div>
-                                <div class="project-name">
-                                    <p>Quản lý Khóa Luận Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo expedita, animi earum vero optio, amet cumque rerum, a laudantium quia debitis tenetur illo provident. Magnam facere nobis non sint officiis!</p>
-                    
-                                </div>
-                                <div class="graduation-essay-item__option center-row">
-                                    <div class="graduation-essay-item-icon more-icon center-col">
-                                        <i class="ti-more graduation-essay-item-option-icon"></i>
-                                    </div>
-                                    <div class="graduation-essay-item-icon center-col">
-                                        <i class="ti-close graduation-essay-item-option-icon"></i>
-                                    </div>
-    
-                                </div>
-                               
-                            </div>
-                            <form action="POST" class="formm" id="form-2">
-                                <div class="form-group">
-                                    <label for="fullname" class="form-label">Tên đầy đủ</label>
-                                    <input id="fullname" name="fullname" placeholder="Nguyễn Văn A" class="form-control" type="text">
-                                    <span class="form-message"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="MSSV" class="form-label">Mã số sinh viên</label>
-                                    <input id="MSSV" name="MSSV" placeholder="2251052047" class="form-control" type="text">
-                                    <span class="form-message"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="projectname" class="form-label">Tên luận văn</label>
-                                    <input id="projectname" name="projectname" placeholder="Tên project" class="form-control" type="text">
-                                    <span class="form-message"></span>
-                                </div>
-                                <button class="form-submit"> Thêm </button>
-                                <div class="form-close">
-                                    <i class="ti-angle-up"></i>
-                                </div>
-                            </form>
-                        </div>
-                        
-                    </div>
-
-
                 </div>
+             </div>
+        </div> 
+    </header>
+    <main class="main">
+        <div class="row90 flex margin-bottom">
+            <div class="row-block center-col">
+                <div class="content-block-header flex space-between">
+                    <div class="content-block-header__title">
+                        <h2>Mới Nhất</h2>
+                    </div>
+                    <div class="next-page-block flex space-between">
+                        <div class="next-page-icon prev-btn">
+                            <i class="ti-angle-left"></i>
+                        </div>
+                        <div class="next-page-icon next-btn">
+                            <i class="ti-angle-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- --- -->
+                <div class="essays-wrapper flex space-between">
+                   <div class="slide flex space-between">
+                        <div class="col-20 center-col margin-both-sides essay-block-item">
+                            <div class="essay-block ">
+                                <div class="essay-content">
+                                    <img  src="./asset/img/luanVanimg.jpg" alt="">
+                                </div>
+                                <div title="" class="essay-leter center-col">
+                                    <span><span>MSSV: </span>${essay.MSSV}</span>
+                                    <span><span>Tên: </span>${essay.name}</span>
+                                    <h3><span>Tên luận: </span>${essay.easayName}</h3>
+                            
+                            </div>
+                        </div>
+                   </div>
+                </div>
+                
+                
+                <!-- --- -->
             </div>
+
+            
         </div>
+
+
+
     </main>
-    <!-- FOOTER -->
+
+
 
     <footer class="footer1">
         
@@ -271,7 +163,6 @@
                         </li>
                        </ul>
                         </div>
-                    
                     </div>
                 </div>
                     
@@ -293,159 +184,166 @@
             </div>
         </div>
     </footer>
-    <script src="./jsFile/Validator.js"></script>
     <script>
-        let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
-        // mở mục thêm side bar
-       
-
-       
-        let sideBarElements = document.querySelectorAll('.side-bar__option-item')
-
-        sideBarElements.forEach(function(sideBarElement) {          
-                sideBarElement.onclick = function(e) {
-
-
-                    let supptionElement = e.target.querySelector('.sup-side-bar__option-item');
-                    supptionElement.classList.remove('close');
-                    e.target.style.border = '1px solid var(--background-color)'; 
-                    if(e.target.querySelector('.sup-side-bar__option-item')) {
-                        var optionBoxHeight = e.target.querySelector('.sup-side-bar__option-item').offsetHeight;
-                        
-
-                        e.target.style.height = (optionBoxHeight + 45) + 'px';
-                    }
-                    else {
-                        var optionBoxHeight = e.target.querySelector('.form').offsetHeight;
-                        e.target.style.height = (optionBoxHeight + 45) + 'px';
-                    }
-
-                    let sideBarElementClose = e.target.querySelector('.form-close');
-                    sideBarElementClose.onclick = function() {
-                        e.target.style.border = 'none'; 
-                        e.target.style.borderBottom = '1px solid var(--seclect-color)';
-                        e.target.style.height = 4.5 + 'rem';
-                        supptionElement.classList.add('close');
-                    };
-                }           
-         });
-
-       
-
-         renderEasy(listEasay);
+        
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
 
         
-        // bấm nút thêm luận văn
-
-        let formElement = document.querySelector('#form-1');
-        let formBtn = formElement.querySelector('.form-submit');
-        formBtn.onclick = function(e) {
-            e.preventDefault();
-            addNew();
-            formElement.querySelector('#fullname').value = "";
-            formElement.querySelector('#MSSV').value= "";
-            formElement.querySelector('#projectname').value= "";
-            
-        };
-        // xửu lí mở chỉnh sữa luận văn
-
-
-       function eventHandler() {
-
-        // xử lí bấm vào nut option
-
-        let essayInfoElements = document.querySelectorAll('.graduation-essay-item');
+        const sliderWrapper = $('.slide');
+        const nextPageBtn = $('.next-page-icon.next-btn');
+        const prevPageBtn = $('.next-page-icon.prev-btn');
+        const essayblock = $('.essay-block-item');
+        const essayblockwidth = essayblock.offsetWidth;
+        const inputBlock = $('.header2-search');
+        
        
-        essayInfoElements.forEach(function(essayInfoElement){
-
-            let moreIconElement = essayInfoElement.querySelector('.more-icon');
-            moreIconElement.onclick = function() {
-                let _this = this;
+        
+        let positionX = 0;
+        
 
 
-
-
-
-            // gắn sãn chữ cho những ô input
-                editEssay(essayInfoElement, parseInt(_this.dataset.index));
-
-                let formmElement = essayInfoElement.parentElement.querySelector('#form-2');
+        const mainPage = {
+            listEasay: localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [],
+            render: function() {
+                const htmls = this.listEasay.map(function(essay,index) {
+                    return `
+                        <div class="col-20 center-col margin-both-sides essay-block-item">
+                            <div class="essay-block ">
+                                <div class="essay-content">
+                                    <img src="./asset/img/luanVanimg.jpg" alt="">
+                                </div>
+                                <div title="${essay.easayName}" class="essay-leter center-col">
+                                    <span><span>MSSV: </span>${essay.MSSV}</span>
+                                    <span><span>Tên: </span>${essay.name}</span>
+                                    <h3><span>Tên luận: </span>${essay.easayName}</h3>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        `
+                })
+                sliderWrapper.innerHTML = htmls.join(' ');
+            },
+            // Hàm Loại Bỏ Dấu Tìm Trên GITHUP =================================================================
+            removeVietnameseTones: function(str) {
+                str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
+                str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
+                str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
+                str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
+                str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
+                str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
+                str = str.replace(/đ/g,"d"); 
+                str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+                str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+                str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+                str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+                str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+                str = str.replace(/Đ/g, "D");
+                // Some system encode vietnamese combining accent as individual utf-8 characters
+                // Một vài bộ encode coi các dấu mũ, dấu chữ như một kí tự riêng biệt nên thêm hai dòng này
+                str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // ̀ ́ ̃ ̉ ̣  huyền, sắc, ngã, hỏi, nặng
+                str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
+                // Remove extra spaces
+                // Bỏ các khoảng trắng liền nhau
+                str = str.replace(/ + /g," ");
+                str = str.trim();
+                // Remove punctuations
+                // Bỏ dấu câu, kí tự đặc biệt
+                str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
+                return str;
+            },
+            
+            
+            searching: function(inputValue) {
+                const _this = this;
+                let essayWrappers = $$('.essay-block');
                 
-                if(formmElement.classList.contains('close')) {
-                   
-                        formmElement.classList.remove('close');
+                for (let index = 0; index < essayWrappers.length; index++) {
+                    let essayWrapper = essayWrappers[index];
+                    let essayName = essayWrapper.querySelector('h3').innerText;
                     
-
-                }
-                else {
-                    formmElement.classList.add('close');
-                }
-                let formmCloseElement = formmElement.querySelector('.form-close');
-
-                formmCloseElement.onclick = function() {
-                    formmElement.classList.add('close');
-                };
-
-        // xử lí nút update
-         
-                let updateBtn = formmElement.querySelector('.form-submit');
-
-                let inputElements = formmElement.querySelectorAll('.form-control');
-                let isOnchangeInput = false
-                inputElements.forEach(function(inputElement) {
-                    inputElement.oninput = function() {
-                        updateBtn.style.backgroundColor = '#1dbfaf';
-                        isOnchangeInput = true;
-                    };
-                });
-                 
-                updateBtn.onclick = function(e) {
-                    if(isOnchangeInput) {
-                        e.preventDefault();
-                        changeEssay(essayInfoElement, parseInt(_this.dataset.index));
-                        formmElement.classList.add('close');
-                        
-                        
-                    } else {
-                        e.preventDefault();
+                    if (_this.removeVietnameseTones(essayName.toUpperCase()).includes(_this.removeVietnameseTones(inputValue.toUpperCase()))) {
+                        positionX = 0;
+                        sliderWrapper.style = `transform: translateX(0px);`;
+                        if ((index + 1) > essayWrappers.length) {
+                            positionX = -(essayblockwidth + 74) * (essayWrappers.length - 4);
+                            sliderWrapper.style = `transform: translateX(${positionX}px);`;
+                        }else  {
+                            
+                                positionX = -(essayblockwidth + 74) * (index -1) ;
+                            
+                            
+                            sliderWrapper.style = `transform: translateX(${positionX}px);`;
+                        }
+                        if(inputValue ==='') {
+                            positionX = 0;
+                            sliderWrapper.style = `transform: translateX(0px);`;
+                        }
+                    
+                        break; 
                     }
-                };
-
+                }
                 
-            
-            }
-            // xử lí nút xóa
-            
-                let deleteBtn = essayInfoElement.querySelector('.close-icon');
-                deleteBtn.onclick = function() {
-                    let isConfirmed = confirm("Xác nhận xóa")
-                    if(isConfirmed) {
-                        deleteEssay(essayInfoElement.querySelector('.more-icon').dataset.index);
-                       
+                    for (let index = 0; index < essayWrappers.length; index++) {
+                        let essayWrapper = essayWrappers[index];
+                        let essayName = essayWrapper.querySelector('h3').innerText;
+                        if (_this.removeVietnameseTones(essayName.toUpperCase()).includes(_this.removeVietnameseTones(inputValue.toUpperCase()))) {
+                            setTimeout(function(){
+                                essayWrappers[index].parentElement.classList.remove('searched');
+                            },3000)
+                            essayWrappers[index].parentElement.classList.add('searched');
+                        }
                     }
+                
+            },
+
+
+            eventHandler: function() {
+                const _this = this;
+                // xử lí chuyển trang
+                nextPageBtn.onclick = function() {
+                    
+                    
+                    if(positionX <= -essayblockwidth*(_this.listEasay.length-3)) {
+                        positionX = 0;
+                    } else {
+                        positionX = positionX - essayblockwidth -74;
+                    }
+                    sliderWrapper.style = `transform: translateX(${positionX}px);`;
                 };
-            
-            
-        });
-       }; 
+                prevPageBtn.onclick = function() {
+                    if(positionX >= 0) {
+                        positionX=0;
+                    }
+                    else {
 
-
-
-
-
-        // Xử lí tìm kiếm 
-        let valueSearchInputs = document.querySelectorAll('#essay-search-box');
-        valueSearchInputs.forEach(function (valueSearchInput) {
-            valueSearchInput.oninput = function () {
-                if (valueSearchInput.name === 'easayName') {
-                    searchEssayName(valueSearchInput.value);
-                } else if (valueSearchInput.name === 'name') {
-                    searchAuthorName(valueSearchInput.value);
-                } else if (valueSearchInput.name === 'MSSV') {
-                    searchMSSV(valueSearchInput.value);
+                        positionX = positionX + essayblockwidth+74 ;
+                    }
+                   
+                    sliderWrapper.style = `transform: translateX(${positionX}px);`;
+                };
+                inputBlock.oninput = function() {
+                    console.log(inputBlock.value);
+                    _this.searching(inputBlock.value);
                 }
-            };
-        });
-     </script>
+
+            },
+             
+
+
+            start: function () {
+                this.render()
+                this.eventHandler();
+                
+            }
+        }
+
+        mainPage.start();
+        
+    </script>
+   
+    
 </body>
 </html>
