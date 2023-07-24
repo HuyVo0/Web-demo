@@ -1,0 +1,126 @@
+/* info-bar */
+.graduation-essays-list{
+    max-height: 56rem;
+    
+    overflow-y: scroll;
+}
+.info-bar{
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color);
+    border-radius: 6px;
+    transition: all 0.3s linear;
+}
+.avatar{
+    width: 50px
+}
+.code{
+    margin-left: 2rem;
+}
+.author{
+    margin-left: 11rem;
+}
+.project{
+    margin-left: 25rem;
+}
+.project, .author,.code{
+    padding: 24px 0;
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+
+.graduation-essay-item{
+    padding: 16px 8px;
+    border-radius: 4px;
+    border-bottom: 1px solid var(--seclect-color);
+}
+.graduation-essay-item:hover{
+    background-color: #ccc;
+}
+.essay-item-img .img{
+    background-image: url(../img/luanVanimg.jpg);
+    width: 50px;
+    padding-top: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.student-code>span ,
+.author-name>h3,
+.project-name>p{
+    
+    font-size: 1.8rem;
+    font-weight: 400;
+    padding: 6px 24px;
+}
+
+.avatar{
+    width: 80px
+}
+.student-code{
+    min-width: 150px;
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.author-name{
+    min-width: 260px;
+    max-width: 260px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.project-name{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 5rem ;
+}
+
+.graduation-essay-item__option{
+    margin-left: auto;
+    margin-right: 3rem;
+    justify-content: space-between;
+    width: 5rem;
+}
+.graduation-essay-item-icon {
+    
+    padding: 8px;
+    margin: 0 4px;
+    border-radius: 4px;
+}
+.graduation-essay-item-icon:hover {
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+}
+
+.graduation-essay-item-option-icon {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.formm {
+    padding: 32px 80px 0;
+    text-align: center;
+    align-self: center;
+   
+  }
+  .formm .form-close:hover {
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  .formm .form-close{
+    width: 30%;
+    margin: 8px auto;
+    padding: 10px 0;
+    color: black;
+  }
+  .formm .form-close>i{
+    font-weight: 800;
+    font-size: 1.4rem;
+  }
+  .formm .form-submit{
+    background-color: var(--seclect-color);
+  }
