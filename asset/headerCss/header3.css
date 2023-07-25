@@ -1,0 +1,124 @@
+.header3-top{
+    top: 0;
+}
+.main-3{
+    margin-top: 7.4rem;
+
+}
+.content-block{
+    background-color: rgba(121, 170, 234, 0.8);
+    padding: 8px 24px;
+    border-radius: 4px;
+    max-height: 80rem;
+    overflow-y: scroll;
+    
+}
+.main-select-bar{
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 4px;
+} 
+.main-select-block{
+    flex: 1;
+}
+.main-select-item {
+    width: 33.33%;
+    padding: 0 1rem 0 0;
+}
+.main-select-item>select {
+    width: 100%;
+    padding: 1.7rem;
+    border: 1px solid rgba(0,0,0,0.5);
+    outline: none;
+}
+/* .main-select-item select .option{
+    padding: 24px 0px;
+
+} */
+
+.main-select-btn{
+    padding: 1.8rem 1.8rem; 
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+}
+.main-select-btn:hover{
+    background-color: rgb(17, 84, 184);
+}
+.main-content-item {
+    height: 27.5rem;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--text-color);
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+}
+.main-content-item:first-child{
+    margin-top: 16px;
+}
+.main-content-item:hover{
+    transform: scale(1.01);
+    box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.main-content-item__text {
+    height: 100%;
+    width: 80%;
+    padding: 6px 24px;
+}
+.main-content-item__img{
+    height: 100%;
+    width: 20%;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+.main-content-item__img>img {
+    width: 22rem;
+}
+.main-content-item__title{
+    margin-right: auto;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--background-color);
+    padding-bottom: 8px;
+}
+.main-content-item-desc{
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0,0.7);
+    padding-bottom: 24px;
+    
+   
+}
+.main-content-item-desc>p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.main-content-item__option-bar{
+    width: 100%;
+}
+.main-content-item__option-btn{
+    
+    padding: 16px 64px;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+.main-content-item__option-btn:hover{
+    color: var(--text-color);
+    background-color: #1d3557;
+}
+.main-content-item__option-btn:hover{
+    transform: scale(1.01);
+    transform:  translateY(-2px);
+
+}
+.main-content-item__option-btn:last-child {
+    background-color: #1dbfaf;
+}

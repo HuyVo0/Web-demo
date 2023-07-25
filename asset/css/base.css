@@ -14,6 +14,13 @@ html {
     font-family: 'roboto', arial, helvetica, sans-serif;
     font-size: 62.5%;
 }
+.back-ground {
+    background-image: url(../img/z4540467560316_84f45f49d26c9ddc69a82bc20c276206.jpg);
+    background-position: center center;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+}
+
 
 .row {
     display: flex;
@@ -122,5 +129,8 @@ ul{
 .space-between {
     
     justify-content: space-between;
+}
+.width{
+    width: 80%;
 }
 
