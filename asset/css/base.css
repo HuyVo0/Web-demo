@@ -87,9 +87,7 @@ html {
 .scale {
     transition: all 0.2s ease;
 }
-.space-between {
-    justify-content: space-between;
-}
+
 
 .close{
     display: none;
@@ -120,5 +118,9 @@ ul{
 }
 .margin-bottom-64px{
     margin-bottom:64px;
+}
+.space-between {
+    
+    justify-content: space-between;
 }
 
