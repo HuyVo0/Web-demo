@@ -18,7 +18,7 @@ $(document).ready(function() {
                             <h3>${essay.easayName}</h3>
                         </div>
                         <div class="main-content-item__name flex">
-                            <span>tác giả: </span>
+                            <span>Tác giả: </span>
                             <h4> ${essay.name}</h4>
                         </div>
                         <div class="main-content-item-desc">
@@ -72,7 +72,7 @@ $(document).ready(function() {
                             <h3 class="width-h3">${essay.easayName}</h3>
                         </div>
                         <div class="main-content-item__name flex">
-                            <span>tác giả: </span>
+                            <span>Tác giả: </span>
                             <h4> ${essay.name}</h4>
                         </div>
                         <div class="main-content-item-desc ">
