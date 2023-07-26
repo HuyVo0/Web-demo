@@ -1,6 +1,9 @@
 $(document).ready(function() {
     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
     let mainContentItemWrapper = $('.main-content-item__wrapper');
+
+    let mainContentItemWrapperGrid = $('.main-content-item__wrapper-grid');
+    
     let scrollPosition = 0;
 // xử lí render
     function renderList(array) {
@@ -54,6 +57,47 @@ $(document).ready(function() {
                 </div>`
         })
         mainContentItemWrapper.html(htmls.join(' '));
+    };
+
+
+    function renderListGrid(array) {
+        const htmls = array.map(function(essay,index) {
+            return `
+            <div class="content-boxx col-25">
+                    <div class="content-box__imgg">
+                        <img src="./asset/img/luanVanimg.jpg" alt="">
+                    </div>
+                    <div class="content-box__descc flex-end">
+                        <div class="main-content-item__title ">
+                            <h3 class="width-h3">${essay.easayName}</h3>
+                        </div>
+                        <div class="main-content-item__name flex">
+                            <span>tác giả: </span>
+                            <h4> ${essay.name}</h4>
+                        </div>
+                        <div class="main-content-item-desc ">
+                            <p>Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Explicabo eligendi 
+                                corrupti laboriosam maxime adipisci, 
+                                magnam sapiente officiis, quibusdam 
+                                sequi dolor eveniet rerum quod eius. 
+                                Eveniet ullam excepturi corrupti 
+                                quibusdam accusamus. Lorem ipsum dolor sit amet consectetur adipisicing 
+                                elit. Vel itaque culpa esse est eaque quis facere iste ipsum quae quam 
+                                voluptatum quod sit nihil velit ut nobis fugit, aliquam nemo. Lorem ipsum 
+                                dolor sit amet consectetur adipisicing elit. Ea cumque optio esse, quam
+                                 saepe molestias quaerat voluptatum magni, doloremque aperiam possimus 
+                                 architecto. Consequuntur animi ut odio ex illum quia quae.</p>
+                        </div>
+                        <div class="main-content-item__download-btn ">
+                            <i class="ti-download"></i>
+                                <span>Download</span>
+                        </div>
+                    </div>
+                </div>
+            `
+        })
+        mainContentItemWrapperGrid.html(htmls.join(' '));
     };
 
 
@@ -129,6 +173,24 @@ $(document).ready(function() {
         }
       }
 
+
+    //   hàm đổi dạng 
+    function changeList (signal) {
+        if(signal === 1) {
+            $('.row-list').removeClass('hide');
+            $('.grid-list').addClass('hide');
+          
+
+        }else if(signal === 2) {
+            $('.row-list').addClass('hide');
+            $('.grid-list').removeClass('hide');
+           
+            
+        }
+    };
+
+
+
     function eventHandlers() {
         //    xử lí cuộn 
         $('.content-block').scroll(function() {
@@ -149,11 +211,12 @@ $(document).ready(function() {
                 });
             }
           });
+        //   sử lí tìm kiếm
           $('.header2-navbar__search').on('input', function() {
                 search($(this).val());
           });
 
-
+        //   header khi di chuyển 
           let prevScrollTop = $(window).scrollTop();
           $(window).scroll(function() {
             let currentScrollTop = $(window).scrollTop();
@@ -171,12 +234,22 @@ $(document).ready(function() {
             if(currentScrollTop ===0) {
                 $('.header2-navbar ').css('top',0);
             }
-            console.log($('.header2-navbar '));
-            console.log('pre',prevScrollTop);
-            console.log('curent',currentScrollTop);
+           
           });
 
-          //   xử lí tìm kiếm
+          $('.row-icon').click(function() {
+                $(this).addClass('active');
+                $('.grid-icon').removeClass('active');
+                changeList(1);
+            
+        });
+        
+        $('.grid-icon').click(function() {
+                $(this).addClass('active');
+                $('.row-icon').removeClass('active');
+                changeList(2);
+        });
+         
     };
       
    
@@ -188,5 +261,6 @@ $(document).ready(function() {
 
 
     renderList(listEasay);
+    renderListGrid(listEasay);
     eventHandlers();    
 });

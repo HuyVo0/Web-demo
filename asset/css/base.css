@@ -48,6 +48,7 @@ html {
     width: 20%;
     padding: 0 5px;
 }
+
 .col-80{
     width: 80%;
     padding: 0 5px;
@@ -135,4 +136,33 @@ ul{
     background-position: center center;
     background-size: cover;
 }
-
+.hide {
+    display: none;
+}
+.col-25 {
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.width-h3 {
+    width: 270px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.active{
+    background-color: black;
+    color: #fff;
+}
+.active:hover{
+    background-color: black;
+    color: #fff;
+}
