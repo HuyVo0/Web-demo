@@ -190,6 +190,53 @@ $(document).ready(function() {
     };
 
 
+    // hàm phân trang : công thức:
+    // currentPage
+    // limit = 8
+    // beginGet = limit * (thisPage -1)
+    // endGet = limit * thisPage - 1
+    let currentPage=1;
+    let limit = 8;
+
+    
+    function loadItem () {
+        let beginGet = limit * (currentPage -1);
+        let endGet = limit * currentPage - 1;
+        $('.content-boxx').each(function(index, item){
+            if(index >= beginGet && index<= endGet) {
+                item.style.display = 'block';
+            }
+            else {
+                item.style.display = 'none';
+
+            }
+            
+        });
+        addNumberLists();
+        eventHandlers()
+    }
+    
+    function addNumberLists() {
+        let count = Math.ceil($('.content-boxx').length / limit);
+        $('.grid-pagination').html('');
+        for(let i = 1; i <= count; i++) {
+            let newpage = $(`<li>${i}</li>`);
+            if(i == currentPage) {
+                newpage.addClass('active');
+            }
+            newpage.attr("data-index", `${i}`);
+            $('.grid-pagination').append(newpage);
+        }
+    };
+    
+    function changePage(i){
+        currentPage = i;
+        loadItem();
+        
+    }
+    
+
+
 
     function eventHandlers() {
         //    xử lí cuộn 
@@ -239,6 +286,7 @@ $(document).ready(function() {
 
           $('.row-icon').click(function() {
                 $(this).addClass('active');
+                $('.grid-pagination').addClass('hide');
                 $('.grid-icon').removeClass('active');
                 changeList(1);
             
@@ -246,9 +294,15 @@ $(document).ready(function() {
         
         $('.grid-icon').click(function() {
                 $(this).addClass('active');
+                $('.grid-pagination').removeClass('hide');
                 $('.row-icon').removeClass('active');
                 changeList(2);
         });
+        $('.grid-pagination li').click(function() {
+            changePage(parseInt($(this).attr('data-index')));
+            
+        })
+        
          
     };
       
@@ -262,5 +316,6 @@ $(document).ready(function() {
 
     renderList(listEasay);
     renderListGrid(listEasay);
+    loadItem();
     eventHandlers();    
 });

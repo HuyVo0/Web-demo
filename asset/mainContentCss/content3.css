@@ -4,7 +4,7 @@
 .main-3{
     margin-top: 6.7rem;
     padding-top: 4rem;
-
+    padding-bottom: 4rem;
 }
 .content-block{
     background-color: rgba(121, 170, 234, 0.8);
@@ -111,6 +111,12 @@
     font-weight: 300;
     color: var(--background-color);
     padding-bottom: 8px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.main-content-item__title>h3{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -292,4 +298,17 @@
     width:250%;
     
 }
+
+
+
+
+/* pagination */
+
+.grid-pagination li{
+    padding: 1.6rem;
+    margin: 6px 8px;
+    background-color: var(--seclect-color);
+    border-radius: 4px;
+}
+
 

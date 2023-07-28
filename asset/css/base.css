@@ -1,8 +1,8 @@
 :root {
+    --seclect-color: #ccc;
     --text-color: #fff;
     --footer-text-color: #423e3e;
     --background-color: #5B86E5;
-    --seclect-color: #ccc;
 }
 *{
     box-sizing: inherit;
@@ -159,10 +159,10 @@ ul{
     text-overflow: ellipsis;
 }
 .active{
-    background-color: black;
+    background-color: black !important;
     color: #fff;
 }
 .active:hover{
-    background-color: black;
+    background-color: black ;
     color: #fff;
 }
