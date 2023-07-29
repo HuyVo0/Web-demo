@@ -197,11 +197,12 @@ $(document).ready(function() {
     // endGet = limit * thisPage - 1
     let currentPage=1;
     let limit = 8;
-
+   
+  
     
     function loadItem () {
         let beginGet = limit * (currentPage -1);
-        let endGet = limit * currentPage - 1;
+        let endGet = limit * currentPage-1;
         $('.content-boxx').each(function(index, item){
             if(index >= beginGet && index<= endGet) {
                 item.style.display = 'block';
@@ -218,7 +219,9 @@ $(document).ready(function() {
     
     function addNumberLists() {
         let count = Math.ceil($('.content-boxx').length / limit);
+        
         $('.grid-pagination').html('');
+        
         for(let i = 1; i <= count; i++) {
             let newpage = $(`<li>${i}</li>`);
             if(i == currentPage) {
@@ -227,6 +230,7 @@ $(document).ready(function() {
             newpage.attr("data-index", `${i}`);
             $('.grid-pagination').append(newpage);
         }
+        
     };
     
     function changePage(i){
@@ -234,6 +238,49 @@ $(document).ready(function() {
         loadItem();
         
     }
+    function paginationBtn(){
+        $('.pagination div').click(function() {
+            // console.log($(this).text());
+                if($(this).hasClass('prevBtn')) {
+                    $('.nextBtn').removeClass('disabled');
+                    $('.prevBtn').removeClass('disabled');
+                    if(currentPage === 1  )  
+                    {
+                        $('.prevBtn').addClass('disabled');
+                    }
+                    else if(currentPage !== 1) {
+                        currentPage = currentPage-1;
+                        changePage(currentPage);
+                        
+                
+                    } 
+                    if(currentPage === 1  )  
+                    {
+                        $('.prevBtn').addClass('disabled');
+                    }
+                }
+                 else  {
+                    let count = Math.ceil($('.content-boxx').length / limit);
+                    $('.prevBtn').removeClass('disabled');
+                    
+                    if(currentPage !== count) {
+                        currentPage = currentPage+1;
+                        changePage(currentPage);
+                        console.log(currentPage , count);
+                        if(currentPage === count)
+                        {
+                            $('.nextBtn').addClass('disabled');
+                        }
+                    }
+                    
+                   
+                }
+            
+           
+            })
+        };
+    
+
     
 
 
@@ -286,10 +333,9 @@ $(document).ready(function() {
 
           $('.row-icon').click(function() {
                 $(this).addClass('active');
-                $('.grid-pagination').addClass('hide');
+                $('.pagination').addClass('hide');
                 $('.grid-icon').removeClass('active');
                 changeList(1);
-            
         });
         
         $('.grid-icon').click(function() {
@@ -302,12 +348,13 @@ $(document).ready(function() {
             changePage(parseInt($(this).attr('data-index')));
             
         })
+       
         
          
     };
       
    
-      
+    
       
       
       
@@ -317,5 +364,6 @@ $(document).ready(function() {
     renderList(listEasay);
     renderListGrid(listEasay);
     loadItem();
+    paginationBtn();
     eventHandlers();    
 });

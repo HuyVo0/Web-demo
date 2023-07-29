@@ -231,7 +231,7 @@
     padding-bottom: 8px;
     border-radius: 4px;
     background: linear-gradient(black,black);   
-   transition: all 1s ;
+   transition: all 0.7s ;
 }
 .content-box__descc h3{
     font-size: 1.5rem;
@@ -303,12 +303,25 @@
 
 
 /* pagination */
-
-.grid-pagination li{
+.pagination div {
+    background-color: var(--seclect-color);
+    padding: 1.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.disabled {
+    opacity: 0.4;
+    cursor: none;
+}
+.grid-pagination>li{
     padding: 1.6rem;
     margin: 6px 8px;
     background-color: var(--seclect-color);
     border-radius: 4px;
+    cursor: pointer;
+}
+.grid-pagination>li:hover {
+    background-color: var(--text-color);
 }
 
 
