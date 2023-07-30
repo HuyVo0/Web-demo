@@ -7,6 +7,7 @@ $(document).ready(function() {
     let scrollPosition = 0;
 // xử lí render
     function renderList(array) {
+        
         const htmls = array.map(function(essay,index) {
             return `
             <div class="main-content-item flex">
@@ -174,6 +175,18 @@ $(document).ready(function() {
       }
 
 
+
+    //   search grid 
+    function gridSearch(inputValue, array) {
+        let essaySearch = array.filter(function (itemValue) {
+            return removeVietnameseTones(itemValue.easayName.toUpperCase()).includes(removeVietnameseTones(inputValue.toUpperCase()));
+        });
+        renderListGrid(essaySearch);
+    };
+
+
+
+
     //   hàm đổi dạng 
     function changeList (signal) {
         if(signal === 1) {
@@ -284,7 +297,7 @@ $(document).ready(function() {
     
 
 
-
+       
     function eventHandlers() {
         //    xử lí cuộn 
         $('.content-block').scroll(function() {
@@ -348,7 +361,15 @@ $(document).ready(function() {
             changePage(parseInt($(this).attr('data-index')));
             
         })
-       
+        $('.header2-navbar__search').keypress(function(event) {
+            // Kiểm tra xem phím nhấn là phím Enter (mã ASCII là 13)
+            if (event.which === 13) {
+              // Xử lý tại đây khi nhấn phím Enter
+              let inputValue = $(this).val();
+              gridSearch(inputValue, listEasay); 
+              loadItem();
+            }
+        });
         
          
     };

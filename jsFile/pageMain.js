@@ -3,13 +3,32 @@ const $ = document.querySelector.bind(document);
 
         
         const sliderWrapper = $('.slide');
-        const nextPageBtn = $('.next-page-icon.next-btn');
-        const prevPageBtn = $('.next-page-icon.prev-btn');
+    
+        const nextPageBtns = $$('.next-page-icon.next-btn');
+        
+        const prevPageBtns = $$('.next-page-icon.prev-btn');
         const essayblock = $('.essay-block-item');
         const essayblockwidth = essayblock.offsetWidth;
+        
         const inputBlock = $('.header2-search');
         const headerTop = $('.header2-navbar');
         const headerInput = $('.header2-navbar__search');
+        const essayListWrapper = $('.essay-list');
+       
+
+
+
+        function getParent(element, selector) {
+            while (element.parentElement) {
+                if(element.parentElement.matches(selector))  {
+                    return element.parentElement;
+                } 
+                else 
+                {
+                    element = element.parentElement; 
+                }
+            }
+        };
         
        
         
@@ -19,6 +38,7 @@ const $ = document.querySelector.bind(document);
 
         const mainPage = {
             listEasay: localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [],
+            latestArray : localStorage.getItem("latest-array") ? JSON.parse(localStorage.getItem("latest-array")) : [],
             render: function() {
                 const htmls = this.listEasay.map(function(essay,index) {
                     return `
@@ -123,30 +143,70 @@ const $ = document.querySelector.bind(document);
             },
 
 
+
+            latestVisit: function(index){
+                
+                    let html=  `
+                        <div class="col-20 center-col margin-both-sides essay-block-item">
+                            <div class="essay-block ">
+                                <div class="essay-content">
+                                    <img src="./asset/img/luanVanimg.jpg" alt="">
+                                </div>
+                                <div title="${this.listEasay[index]?.easayName}" class="essay-leter center-col">
+                                    <span><span>MSSV: </span>${this.listEasay[index]?.MSSV}</span>
+                                    <span><span>Tên: </span>${this.listEasay[index]?.name}</span>
+                                    <h3><span>Tên luận: </span>${this.listEasay[index]?.easayName}</h3>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        `;
+                        this.latestArray.unshift(html);
+                        if (this.latestArray.length>=8) {
+                            this.latestArray.splice(7, 1);
+                        }
+                        
+                        localStorage.setItem("latest-array", JSON.stringify(this.latestArray));
+                let htmls = '';
+                this.latestArray.map(function(value){
+                    htmls += value;
+                });
+                console.log(htmls);
+                document.querySelector('.slide-latest').innerHTML = htmls;
+            },
+
+
             eventHandler: function() {
                 const _this = this;
                 // xử lí chuyển trang
-                nextPageBtn.onclick = function() {
+                
+                nextPageBtns.forEach(function(nextPageBtn) {
+                    nextPageBtn.onclick = function() {
                     
-                    
-                    if(positionX <= -essayblockwidth*(_this.listEasay.length-3)) {
-                        positionX = 0;
-                    } else {
-                        positionX = positionX - essayblockwidth -74;
-                    }
-                    sliderWrapper.style = `transform: translateX(${positionX}px);`;
-                };
-                prevPageBtn.onclick = function() {
-                    if(positionX >= 0) {
-                        positionX=0;
-                    }
-                    else {
+                        // console.log(getParent(this,'.row-block').querySelector('.slide'));
+                        if(positionX <= -essayblockwidth*(_this.listEasay.length-3)) {
+                            positionX = 0;
+                        } else {
+                            positionX = positionX - essayblockwidth - 70;
+                        }
+                        getParent(this,'.row-block').querySelector('.slide').style = `transform: translateX(${positionX}px);`;
+                    };
+                });
+                prevPageBtns.forEach(function(prevPageBtn) {
+                    prevPageBtn.onclick = function() {
+                        if(positionX >= 0) {
+                            positionX=0;
+                        }
+                        else {
+    
+                            positionX = positionX + essayblockwidth + 70;
+                        }
+                       
+                        getParent(this,'.row-block').querySelector('.slide').style = `transform: translateX(${positionX}px);`;
+                    };
+                });
 
-                        positionX = positionX + essayblockwidth+74 ;
-                    }
-                   
-                    sliderWrapper.style = `transform: translateX(${positionX}px);`;
-                };
+
                 inputBlock.oninput = function() {
                     _this.searching(inputBlock.value);
                 };
@@ -156,7 +216,11 @@ const $ = document.querySelector.bind(document);
                 window.onscroll = function() {
                     _this.headerAper();
                 }
-
+                essayListWrapper.querySelectorAll('.essay-block').forEach(function(essay,index) {
+                    essay.onclick = function() {
+                        _this.latestVisit(index);
+                    };
+                })
             },
              
 
@@ -164,6 +228,7 @@ const $ = document.querySelector.bind(document);
             start: function () {
                 this.render()
                 this.eventHandler();
+                this.latestVisit();
                 
             }
         }
