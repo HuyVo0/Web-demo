@@ -4,6 +4,18 @@
     
     overflow-y: scroll;
 }
+.graduation-essays-list::-webkit-scrollbar {
+    width: 5px;
+}
+.graduation-essays-list::-webkit-scrollbar-thumb  {
+    width: 5px;
+    border-radius: 3px;
+    background-color: #ccc;
+}
+.graduation-essays-list::-webkit-scrollbar-thumb:hover {
+    background-color: var(--background-color);
+}
+
 .info-bar{
     display: flex;
     align-items: center;

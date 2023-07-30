@@ -353,7 +353,7 @@ $(document).ready(function() {
         
         $('.grid-icon').click(function() {
                 $(this).addClass('active');
-                $('.grid-pagination').removeClass('hide');
+                $('.pagination').removeClass('hide');
                 $('.row-icon').removeClass('active');
                 changeList(2);
         });

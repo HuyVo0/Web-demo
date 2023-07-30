@@ -144,5 +144,32 @@
     
 }
 
+.newest{
+    position: relative;
+}
+.newest::after{
+    width: 100px;
+    height: 27px;
+    content: "New";
+    position: absolute;
+    top: 0;
+    background-color: var(--background-color);
+    left: 3px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 27px;
+    box-shadow: 1px 1px 3px 3px rgba(0, 0,0,0.3);
+}
+.newest::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 3px;
+    top: 27px;
+    border: 6px solid ;
+    border-color: #1d3557 #1d3557 transparent transparent ;
+    z-index: 9;
+}
 
 

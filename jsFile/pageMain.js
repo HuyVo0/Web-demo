@@ -42,8 +42,8 @@ const $ = document.querySelector.bind(document);
             render: function() {
                 const htmls = this.listEasay.map(function(essay,index) {
                     return `
-                        <div class="col-20 center-col margin-both-sides essay-block-item">
-                            <div class="essay-block ">
+                        <div class="col-20 center-col margin-both-sides essay-block-item ">
+                            <div data-index ="${index}" class="essay-block">
                                 <div class="essay-content">
                                     <img src="./asset/img/luanVanimg.jpg" alt="">
                                 </div>
@@ -59,6 +59,17 @@ const $ = document.querySelector.bind(document);
                 })
                 sliderWrapper.innerHTML = htmls.join(' ');
             },
+
+            addNewbar: function() {
+                
+                sliderWrapper.querySelectorAll('.essay-block').forEach(function(value){
+                    if(parseInt(value.dataset.index) <= 2) {
+                        value.classList.add('newest');
+                    }
+                });
+            },
+
+
             // Hàm Loại Bỏ Dấu Tìm Trên GITHUP =================================================================
             removeVietnameseTones: function(str) {
                 str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
@@ -142,28 +153,41 @@ const $ = document.querySelector.bind(document);
                 }
             },
 
-
+            renderLatestVisit : function() {
+                let html = '';
+                
+                this.latestArray.map(function(value){
+                    html += value;
+                });
+                document.querySelector('.slide-latest').innerHTML = html;
+            },
 
             latestVisit: function(index){
-                
+                let _this = this;
                     let html=  `
                         <div class="col-20 center-col margin-both-sides essay-block-item">
                             <div class="essay-block ">
                                 <div class="essay-content">
                                     <img src="./asset/img/luanVanimg.jpg" alt="">
                                 </div>
-                                <div title="${this.listEasay[index]?.easayName}" class="essay-leter center-col">
-                                    <span><span>MSSV: </span>${this.listEasay[index]?.MSSV}</span>
-                                    <span><span>Tên: </span>${this.listEasay[index]?.name}</span>
-                                    <h3><span>Tên luận: </span>${this.listEasay[index]?.easayName}</h3>
+                                <div title="${_this.listEasay[index] .easayName}" class="essay-leter center-col">
+                                    <span><span>MSSV: </span>${_this.listEasay[index].MSSV}</span>
+                                    <span><span>Tên: </span>${_this.listEasay[index].name}</span>
+                                    <h3><span>Tên luận: </span>${_this.listEasay[index].easayName}</h3>
                                 </div>
                             
                             </div>
                         </div>
                         `;
-                        this.latestArray.unshift(html);
-                        if (this.latestArray.length>=8) {
-                            this.latestArray.splice(7, 1);
+                        this.latestArray.map(function(value,index){
+                            if(value == html) {
+                                
+                                _this.latestArray.splice(index, 1);
+                            }
+                        });
+                        _this.latestArray.unshift(html);
+                        if (_this.latestArray.length>=8) {
+                            _this.latestArray.splice(7, 1);
                         }
                         
                         localStorage.setItem("latest-array", JSON.stringify(this.latestArray));
@@ -171,7 +195,7 @@ const $ = document.querySelector.bind(document);
                 this.latestArray.map(function(value){
                     htmls += value;
                 });
-                console.log(htmls);
+                
                 document.querySelector('.slide-latest').innerHTML = htmls;
             },
 
@@ -182,13 +206,23 @@ const $ = document.querySelector.bind(document);
                 
                 nextPageBtns.forEach(function(nextPageBtn) {
                     nextPageBtn.onclick = function() {
-                    
-                        // console.log(getParent(this,'.row-block').querySelector('.slide'));
-                        if(positionX <= -essayblockwidth*(_this.listEasay.length-3)) {
-                            positionX = 0;
-                        } else {
-                            positionX = positionX - essayblockwidth - 70;
+                        if(getParent(this,'.row90').classList.contains('content-bottom')) {
+                            if(positionX <= -essayblockwidth*(_this.latestArray.length-3)) {
+                                positionX = 0;
+                            } else {
+                                positionX = positionX - essayblockwidth - 75;
+                            }
                         }
+                        else {
+                            
+                            if(positionX <= -essayblockwidth*(_this.listEasay.length-3)) {
+                                positionX = 0;
+                            } else {
+                                positionX = positionX - essayblockwidth - 75;
+                            }
+                        }
+                        
+                        
                         getParent(this,'.row-block').querySelector('.slide').style = `transform: translateX(${positionX}px);`;
                     };
                 });
@@ -199,7 +233,7 @@ const $ = document.querySelector.bind(document);
                         }
                         else {
     
-                            positionX = positionX + essayblockwidth + 70;
+                            positionX = positionX + essayblockwidth + 75;
                         }
                        
                         getParent(this,'.row-block').querySelector('.slide').style = `transform: translateX(${positionX}px);`;
@@ -227,7 +261,9 @@ const $ = document.querySelector.bind(document);
 
             start: function () {
                 this.render()
+                this.renderLatestVisit();
                 this.eventHandler();
+                this.addNewbar();
                 this.latestVisit();
                 
             }
