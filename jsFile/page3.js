@@ -252,6 +252,7 @@ $(document).ready(function() {
         
     }
     function paginationBtn(){
+        
         $('.pagination div').click(function() {
             // console.log($(this).text());
                 if($(this).hasClass('prevBtn')) {
@@ -279,7 +280,7 @@ $(document).ready(function() {
                     if(currentPage !== count) {
                         currentPage = currentPage+1;
                         changePage(currentPage);
-                        console.log(currentPage , count);
+                        
                         if(currentPage === count)
                         {
                             $('.nextBtn').addClass('disabled');
@@ -291,6 +292,7 @@ $(document).ready(function() {
             
            
             })
+            
         };
     
 
@@ -358,7 +360,23 @@ $(document).ready(function() {
                 changeList(2);
         });
         $('.grid-pagination li').click(function() {
+            let count = Math.ceil($('.content-boxx').length / limit);
+            
             changePage(parseInt($(this).attr('data-index')));
+            if(currentPage !== 1) {
+                $('.prevBtn').removeClass('disabled')
+            }
+            else {
+                $('.prevBtn').addClass('disabled')
+            }
+            if(currentPage !== count) {
+                $('.nextBtn').removeClass('disabled')
+            }
+            else {
+                $('.nextBtn').addClass('disabled')
+            }
+           
+            
             
         })
         $('.header2-navbar__search').keypress(function(event) {

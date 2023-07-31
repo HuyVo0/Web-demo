@@ -8,9 +8,19 @@
     transition: all 0.5s ease;
     
 }
+.header2-navbar__fa-house-icon {
+    color: #fff;
+    font-size: 3rem;
+    position: absolute;
+    left: -39px;
+  
+}
 .header2-navbar__search-box{
+    position: relative;
     background-color: #fff;
     border-radius: 8px;
+    
+    
 }
 .header2-navbar__search{
     padding: 12px 10px;
@@ -25,8 +35,13 @@
     border: none;
     padding: 6px;
 }
+.header2-navbar__option-btn{
+    color: var(--text-color);
+    font-size: 2rem;
+    padding: 8px 16px;
+}
 .header2-navbar__more-btn{
-    padding: 8px 80px;
+    padding: 8px 16px;
     border-radius: 8px;
     background-color: var(--background-color);
     color: var(--text-color);

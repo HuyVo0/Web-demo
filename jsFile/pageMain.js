@@ -13,10 +13,14 @@ const $ = document.querySelector.bind(document);
         const inputBlock = $('.header2-search');
         const headerTop = $('.header2-navbar');
         const headerInput = $('.header2-navbar__search');
-        const essayListWrapper = $('.essay-list');
-       
 
+        // const essayListWrapper = $('.essay-list');
 
+        const modelCloseBtn = $('.model-close-icon');
+        const modelWrapperContent = $('.model-wrapper-content');
+        let positionX = 0;
+
+    //  hàm lấy element cha
 
         function getParent(element, selector) {
             while (element.parentElement) {
@@ -30,15 +34,14 @@ const $ = document.querySelector.bind(document);
             }
         };
         
-       
-        
-        let positionX = 0;
+      
         
 
 
         const mainPage = {
             listEasay: localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [],
             latestArray : localStorage.getItem("latest-array") ? JSON.parse(localStorage.getItem("latest-array")) : [],
+            // hàm render ra màn hình
             render: function() {
                 const htmls = this.listEasay.map(function(essay,index) {
                     return `
@@ -60,6 +63,7 @@ const $ = document.querySelector.bind(document);
                 sliderWrapper.innerHTML = htmls.join(' ');
             },
 
+            // hàm thêm dải băng mới (NEW) 
             addNewbar: function() {
                 
                 sliderWrapper.querySelectorAll('.essay-block').forEach(function(value){
@@ -100,7 +104,7 @@ const $ = document.querySelector.bind(document);
                 return str;
             },
             
-            
+            // hàm tìm kiếm===
             searching: function(inputValue) {
                 const _this = this;
                 let essayWrappers = $$('.essay-block');
@@ -143,6 +147,8 @@ const $ = document.querySelector.bind(document);
                     }
                 
             },
+
+            // hàm ẩn hiện header phụ
             headerAper: function(){
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if(scrollTop >= 450 ) {
@@ -153,6 +159,58 @@ const $ = document.querySelector.bind(document);
                 }
             },
 
+            // hàm hiể thị nội dung ra model
+            renderModelContent: function(index){
+                let html = `<div>
+                                <div class="model-title">
+                                    <h1>${this.listEasay[index].easayName}</h1>
+                                </div>
+                                <div class="model-author flex row-block space-between">
+                                    <div class="flex ">
+                                        <i class="ti-user"></i>
+                                        <h2>${this.listEasay[index].name}</h2>
+                                    </div>
+                                    <div class="model-student-code">
+                                        <span class="item-1">Mã Số Sinh Viên:</span>
+                                        <span>${this.listEasay[index].MSSV}</span>
+                                    </div>
+
+                                </div>
+                                <div class="model-desc flex">
+                                    <p><i class="fa-solid fa-pen"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quia natus 
+                                        repellendus, tempore vitae autem, cum impedit inventore eligendi ea dignissimos
+                                        aliquam assumenda at accusantium amet veritatis numquam quas ut. Lorem ipsum 
+                                        dolor sit amet consectetur adipisicing elit. Eaque eius ullam, corrupti 
+                                        architecto reiciendis odit voluptatem doloremque nisi consequatur laudantium 
+                                        magnam veritatis sit dolor nobis ratione ipsam, qui beatae molestiae.</p>
+                                </div>
+                            </div>
+                            <div class="model-btn flex space-between">
+                                <div >
+                                    <i class="ti-book"></i>
+                                    <span>Trang</span>
+                                </div>
+                                <div>
+                                    <i class="fa-regular fa-calendar-days"></i>
+                                    <span>ngày ${this.listEasay[index].dateAdded}</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-eye"></i>
+                                    <span>Lượt xem</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-file-arrow-down"></i>
+                                    <span>Lượt tải</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-bars"></i>
+                                </div>
+                            </div>`;
+                            modelWrapperContent.innerHTML = html;
+                          this.eventHandler();
+            },
+
+            // hàm render ra luận văn ở mới xem khi bấm vào  
             renderLatestVisit : function() {
                 let html = '';
                 
@@ -161,12 +219,12 @@ const $ = document.querySelector.bind(document);
                 });
                 document.querySelector('.slide-latest').innerHTML = html;
             },
-
+            //  hàm thêm vào mảng localstorage luận văn mới bấm vào
             latestVisit: function(index){
                 let _this = this;
                     let html=  `
                         <div class="col-20 center-col margin-both-sides essay-block-item">
-                            <div class="essay-block ">
+                            <div data-index = "${index}" class="essay-block ">
                                 <div class="essay-content">
                                     <img src="./asset/img/luanVanimg.jpg" alt="">
                                 </div>
@@ -199,7 +257,7 @@ const $ = document.querySelector.bind(document);
                 document.querySelector('.slide-latest').innerHTML = htmls;
             },
 
-
+            //  hàm sự kiện===========
             eventHandler: function() {
                 const _this = this;
                 // xử lí chuyển trang
@@ -240,21 +298,37 @@ const $ = document.querySelector.bind(document);
                     };
                 });
 
-
+                // xử lí nhập tìm kiếm==
                 inputBlock.oninput = function() {
                     _this.searching(inputBlock.value);
                 };
                 headerInput.oninput = function() {
                     _this.searching(headerInput.value);
                 };
+                // xử lí cuộn trang
                 window.onscroll = function() {
                     _this.headerAper();
                 }
-                essayListWrapper.querySelectorAll('.essay-block').forEach(function(essay,index) {
+                // xử lí bấm bào luận văn
+                
+                document.querySelectorAll('.essay-block').forEach(function(essay) {
+                    
                     essay.onclick = function() {
-                        _this.latestVisit(index);
+                        
+                        _this.latestVisit(parseInt(essay.dataset.index));
+                        document.querySelector('.model').classList.remove('hide');
+                        _this.renderModelContent(parseInt(essay.dataset.index));
                     };
                 })
+                // xử lí tắt model
+                modelCloseBtn.onclick = function() {
+                    document.querySelector('.model').classList.add('hide');
+                }
+                document.querySelector('.model').onclick = function(e) {
+                    if(e.target.classList.contains('model')) {
+                        e.target.classList.add('hide');
+                    }
+                };
             },
              
 

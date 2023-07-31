@@ -148,7 +148,7 @@
     position: relative;
 }
 .newest::after{
-    width: 100px;
+    width: 90px;
     height: 27px;
     content: "New";
     position: absolute;
@@ -159,7 +159,8 @@
     color: #fff;
     font-size: 1.5rem;
     line-height: 27px;
-    box-shadow: 1px 1px 3px 3px rgba(0, 0,0,0.3);
+    box-shadow: 1px 1px 2px 2px rgba(0, 0,0,0.3);
+    transition: all 0.5s;
 }
 .newest::before{
     content: "";
@@ -167,9 +168,151 @@
     top: 0;
     left: 3px;
     top: 27px;
-    border: 6px solid ;
+    border: 7px solid ;
     border-color: #1d3557 #1d3557 transparent transparent ;
     z-index: 9;
+    transition: all 0.5s;
+}
+.essay-block-item:hover .newest::after{
+    width: 110px;
+    height: 30px;
+    line-height: 30px;
+    transform: translate(-5px,-3px);
+}
+.essay-block-item:hover .newest::before{
+    border: 9px solid ;
+    border-color: #1d3557 #1d3557 transparent transparent ;
+    transform: translateX(-4px);
 }
 
+.model {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:rgba(0, 0, 0, 0.5) ;
+}
+.model-wrapper {
+    width: 70%;
+   height: 60rem;
+    background-color: #fff;
+    margin: 5rem auto 0;
+    padding: 1rem 2rem 2rem ;
+    border-radius: 4px;
+}
+.model-close-icon {
+    width: 3rem;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 1.8rem;
+    margin-left: auto;
+    /* background-color: var(--seclect-color); */
+    border-radius: 4px;
+    margin-bottom: 8px;
+    margin-right: -8px;
+    transition: all 0.3s;
+}
+.model-close-icon:hover {
+    background-color: red;
+    color: var(--text-color);
+    transform: rotate(180deg);
+}
+.model-wrapper-content{
+    display: flex;
+    flex: 1 
+}
+.model-title {
+    font-size: 1.5rem;
+    color: var(--background-color);
+}
+.model-author{
+    padding-top: 2rem;
+    font-size: 1.5rem;
+
+}
+.model-author h2{
+    padding-left: 18px;
+}
+.model-author i{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.model-student-code{
+    font-size: 1.5rem;
+}
+.model-student-code .item-1{
+    font-weight: 500;
+    font-size: 1.7rem;
+    padding-right: 12px;
+}
+
+.model-desc {
+    padding: 2rem 0;
+    font-size: 1.5rem;
+    color: #716a6a;
+}
+.model-desc i {
+    font-size: 2rem;
+    color: black;
+}
+.model-btn{
+    width: 100%;
+    margin-top: auto;
+}
+.model-btn div{
+    background-color: red;
+    min-width: 19%;
+    text-align: center;
+    padding: 2rem 0;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    background-color: #ccc;
+}
+.model-btn div:last-child{
+    position: relative;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1.8rem;
+    padding: 1.7rem 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+.model-btn div:last-child::after {
+    content: "Xem Thêm";
+    text-align: center;
+    padding: 1.9rem 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100px;
+    right: 100%;
+    background-color: #1ac7b6;
+    border-radius: 4px;
+    transition: all 0.5s ;
+    
+}
+.model-btn div:last-child::before{
+    content: "Xem Thêm";
+    text-align: center;
+    padding: 1.9rem 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background-color);
+    border-radius: 4px;
+    transition: all 0.5s ;
+    
+}
+.model-btn div:last-child:hover::after {
+    right: 0;
+    left: 0;
+}
+.model-btn div:last-child:hover::before {
+    right: -100px;
+    left: 100%;
+}
 
