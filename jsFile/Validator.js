@@ -1,4 +1,29 @@
+function getDataFromJSON() {
+    return fetch('./json/esay.json') // Đường dẫn tới file JSON
+      .then(response => response.json()) // Chuyển đổi dữ liệu thành mảng JavaScript
+      .catch(error => {
+        console.error('Đã xảy ra lỗi:', error);
+      });
+  }
+ function getListEasay() {
+    let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
+    
+    if (listEasay.length === 0) {
+      getDataFromJSON()
+        .then(data => {
+          // Gán dữ liệu từ hàm getDataFromJSON vào listEasay
+          listEasay = data;
+          // Lưu lại listEasay vào localStorage để sử dụng sau này
+          localStorage.setItem("list-easay", JSON.stringify(listEasay));
+          
+           console.log("helo");
+           window.location.reload();
+        });
+        
+    } 
+  }  
 
+  getListEasay();
 
 function validateInput() {
     let formElement = document.querySelector('#form-1');
