@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./asset/font/themify-icons-font/themify-icons/themify-icons.css"> 
     <link rel="stylesheet" href="./asset/headerCss/header.css">
     <link rel="stylesheet" href="./asset/sideBarCss/sidebar.css">
@@ -201,6 +202,25 @@
             </div>
         </div>
     </main>
+
+    <div class="comfirm-model-wrapper hide">
+        <div class="confirm-model center-col">
+            <div class="comfirm-message ">
+                <h1>Xác Nhận Xóa</h1>
+            </div>
+            <div  class="confirm-btn flex ">
+                <div value = "true" class="comfirm-model-btn flex space-between-center">
+                    <i class="fa-solid fa-square-check"></i>
+                   
+                </div>
+                <div value="false" class="comfirm-model-btn flex space-between-center">
+                    <i class="fa-solid fa-circle-xmark"></i>    
+                  
+                </div>
+            </div>
+
+        </div>
+    </div>
     <!-- FOOTER -->
 
     <footer class="footer1">
@@ -415,21 +435,40 @@
             
             }
             // xử lí nút xóa
-            
+                let deletemodel =  document.querySelector('.comfirm-model-wrapper');
                 let deleteBtn = essayInfoElement.querySelector('.close-icon');
+               
+                
                 deleteBtn.onclick = function() {
-                    let isConfirmed = confirm("Xác nhận xóa")
-                    if(isConfirmed) {
-                        deleteEssay(essayInfoElement.querySelector('.more-icon').dataset.index);
-                       
-                    }
+                    deletemodel.classList.remove('hide');
+                    deletemodel.onclick = function(e) {
+                        console.log(e.target);
+                        if(e.target.getAttribute('value') === 'true') {
+                            deleteEssay(essayInfoElement.querySelector('.more-icon').dataset.index);
+                            deletemodel.classList.add('hide');
+                        }
+                        else if(e.target.getAttribute('value') === 'false') {
+                            deletemodel.classList.add('hide');
+                        }
+                        else if(e.target.classList.contains('comfirm-model-wrapper')) {
+                            deletemodel.classList.add('hide');
+                        }
+                    };
                 };
             
+            // isConfirms.forEach(function(confirm){
+            //     if(confirm.getAttribute('value') == 'true') {
+            //         deleteEssay(essayInfoElement.querySelector('.more-icon').dataset.index);
+            //     }
+            //     else {
+            //         document.querySelector('.comfirm-model-wrapper').classList.remove('hide');
+            //     }
+            // });
             
         });
        }; 
 
-
+    //    deleteEssay(essayInfoElement.querySelector('.more-icon').dataset.index);
 
 
 

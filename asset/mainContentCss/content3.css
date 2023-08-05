@@ -56,7 +56,16 @@
     border-radius: 4px;
 }
 
-
+select option[value="3"]  {
+    color: #333; /* Màu chữ */
+     /* Màu nền */
+    font-size: 16px; /* Kích thước chữ */
+    font-family: Arial, sans-serif; /* Kiểu chữ */
+    font-weight: normal; /* Độ đậm nhạt chữ */
+    padding: 8px 12px; /* Khoảng cách giữa nội dung và viền */
+    border: 1px solid #ccc; /* Viền */
+    border-radius: none;
+  }
 .main-select-btn{
     padding: 1.8rem 1.8rem; 
     margin: 0 0.5rem;

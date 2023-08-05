@@ -136,3 +136,127 @@
   .formm .form-submit{
     background-color: var(--seclect-color);
   }
+
+
+  .comfirm-model-wrapper{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+  }
+  .confirm-model {
+    padding: 2rem;
+    width: 50rem;
+    height: 20rem;
+    background-color: #fff;
+    margin: 19rem auto;
+    border-radius: 4px;
+  }
+  .comfirm-message {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.6rem;
+
+  }
+  .confirm-btn{
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+  }
+  .comfirm-model-btn{
+   width: 40%;
+   height: 50px;
+    position: relative;
+    text-align: center;
+    padding: 1rem 2rem;
+    /* background-color: var(--background-color); */
+    border-radius: 4px;
+    font-size: 1.5rem;
+    overflow: hidden;
+
+  }
+  .comfirm-model-btn::after {
+    content: "Xác Nhận";
+    position: absolute;
+    width: 70%;
+    top: 130%;
+    right: 0;
+    bottom: 0;
+    line-height:50px ;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: #1dbfaf;
+    border-radius: 4px;
+    transition: all 0.5s;
+    color: var(--text-color);
+  }
+  
+  .comfirm-model-btn:last-child::after {
+    content: "Hủy";
+    position: absolute;
+    width: 70%;
+    top: 130%;
+    right: 0;
+    bottom: 0;
+    line-height:50px ;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: red;
+    border-radius: 4px;
+    transition: all 0.5s;
+    color: var(--text-color);
+  }
+
+  .comfirm-model-btn i{
+    position: absolute;
+    transform: translateX(50%) ;
+    right: 50%;
+    font-size: 3rem;
+    margin-right: 4px;
+    animation: hover-reverse 0.5s  forwards;
+  }
+
+  .comfirm-model-btn:hover::after{
+    top: 0;
+    /* left: 0; */
+  }  
+  .comfirm-model-btn:hover i{
+    color: #1dbfaf;
+    animation: hover 0.5s  forwards;
+  }
+  .comfirm-model-btn:last-child:hover i{
+    color: red;
+    animation: hover 0.5s  forwards;
+  }
+
+
+  
+  @keyframes hover {
+    from {
+        color: var(--seclect-color);
+        transform: scale(1)  ;
+        right: 50%;
+        
+    }
+    to {
+        
+        transform:  scale(1.6) rotate(360deg);
+        right: 76%;
+        
+    }
+  }
+  @keyframes hover-reverse {
+    from {
+      transform:  scale(1.6) ;
+      right: 76%;
+    }
+    to {
+      transform: rotate(360deg) translateX(50%)   scale(1);
+      right: 50%;
+    }
+  }

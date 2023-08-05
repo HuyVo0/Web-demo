@@ -170,3 +170,6 @@ ul{
     background-color: black ;
     color: #fff;
 }
+.space-between-center{
+    justify-content: center;
+}

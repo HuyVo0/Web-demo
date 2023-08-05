@@ -9,7 +9,7 @@ const $ = document.querySelector.bind(document);
         const prevPageBtns = $$('.next-page-icon.prev-btn');
         const essayblock = $('.essay-block-item');
         const essayblockwidth = essayblock.offsetWidth;
-        
+        console.log(essayblockwidth);
         const inputBlock = $('.header2-search');
         const headerTop = $('.header2-navbar');
         const headerInput = $('.header2-navbar__search');
@@ -88,8 +88,9 @@ const $ = document.querySelector.bind(document);
             // hàm thêm dải băng mới (NEW) 
             addNewbar: function() {
                 
-                sliderWrapper.querySelectorAll('.essay-block').forEach(function(value){
-                    if(parseInt(value.dataset.index) <= 2) {
+                sliderWrapper.querySelectorAll('.essay-block-item').forEach(function(value){
+                    let data = value.querySelector('.essay-block').dataset.index;
+                    if(parseInt(data) <= 2) {
                         value.classList.add('newest');
                     }
                 });
@@ -188,7 +189,7 @@ const $ = document.querySelector.bind(document);
                                     <h1>${this.listEasay[index].easayName}</h1>
                                 </div>
                                 <div class="model-author flex row-block space-between">
-                                    <div class="flex ">
+                                    <div class="flex mn">
                                         <i class="ti-user"></i>
                                         <h2>${this.listEasay[index].name}</h2>
                                     </div>
@@ -214,7 +215,7 @@ const $ = document.querySelector.bind(document);
                                 </div>
                                 <div>
                                     <i class="fa-regular fa-calendar-days"></i>
-                                    <span>ngày ${this.listEasay[index].dateAdded}</span>
+                                    <span> ${this.listEasay[index].dateAdded}</span>
                                 </div>
                                 <div>
                                     <i class="fa-solid fa-eye"></i>
@@ -287,7 +288,7 @@ const $ = document.querySelector.bind(document);
                 nextPageBtns.forEach(function(nextPageBtn) {
                     nextPageBtn.onclick = function() {
                         if(getParent(this,'.row90').classList.contains('content-bottom')) {
-                            if(positionX <= -essayblockwidth*(_this.latestArray.length-3)) {
+                            if(positionX <= -essayblockwidth*(_this.latestArray.length)) {
                                 positionX = 0;
                             } else {
                                 positionX = positionX - essayblockwidth - 75;
@@ -295,7 +296,7 @@ const $ = document.querySelector.bind(document);
                         }
                         else {
                             
-                            if(positionX <= -essayblockwidth*(_this.listEasay.length-3)) {
+                            if(positionX <= -essayblockwidth*(_this.listEasay.length)) {
                                 positionX = 0;
                             } else {
                                 positionX = positionX - essayblockwidth - 75;
