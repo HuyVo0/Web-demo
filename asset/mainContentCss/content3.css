@@ -29,14 +29,14 @@
     background-color: #1d3557;
 }
 .main-select-bar{
-    width: 94.5%;
+    /* width: 100%; */
     padding-top: 2px;
     padding-bottom: 4px;
     position: absolute;
     background-color: #1d3557;
     border-radius: 4px;
-    left: 24px;
-    right: 24px;
+    left: 0;
+    right: 0px;
     z-index: 8;
     /* transition: all 0.3s ease; */
 } 

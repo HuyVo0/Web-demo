@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./asset/mainContentCss/content.css">
     <link rel="stylesheet" href="./asset/footerCSS/footer.css">
     <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/responsive/index2Responsive.css">
     
     <title>Document</title>
 </head>
@@ -43,8 +44,17 @@
     </header>
     <!-- NAV-BAR -->
     <nav class="nav-bar">
-        <div class="row center">
-            <ul class="nav__list ">
+        <div class="row center a">
+            <!-- mobile -->
+            <div class="mobile-navbar flex space-between">
+                <div class="mobile-nav-bar-icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="mobile-nav-bar-icon mobile-nav-bar-icon-fa-bars">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <ul class="nav__list hidden">
                 <li class="nav__list-item">
                     <a href="">Trang Chủ</a>
                 </li>
@@ -67,12 +77,16 @@
     </nav>
     <!-- MAIN - CONTENT -->
     <main class="content-wrapper margin-both-side ">
-        <div class="row magin-top-16 margin-bottom-64px">
+        <div class="row magin-top-16 margin-bottom-64px b">
+            <div class="open-side-bar">
+                <i class="fa-solid fa-caret-right"></i>
+            </div>
             <div class="side-bar col-20">
                 <div class="side-bar__options">
                     <i class="ti-menu"></i>
                     Danh mục
                 </div>
+               
                 <div class="side-bar__option">
                     <ul class="side-bar__option-list">
                         <li class="side-bar__option-item scale">
@@ -226,7 +240,7 @@
     <footer class="footer1">
         
         <div class="footer-info margin-both-side">
-            <div class="row ">
+            <div class="row c">
                     <div class="info col-3 center-col">
                         <div class="info-wraper">
                             <div class="info-title">Các liên kết khác</div>
@@ -465,7 +479,39 @@
             //     }
             // });
             
+
+
+         
         });
+        // mở navbar mobile
+        let moblieMoreIcon = document.querySelector('.mobile-nav-bar-icon-fa-bars');
+        let navBarMobile = document.querySelector('.nav__list');
+        moblieMoreIcon.onclick = function() {
+            if(navBarMobile.classList.contains('.hidden')) {
+
+                navBarMobile.classList.remove('.hidden');
+                navBarMobile.style.display = 'flex';
+            }
+            else {
+                navBarMobile.classList.add('.hidden');
+                navBarMobile.style.display = 'none';
+            }
+        };
+        let openSideBar = document.querySelector('.open-side-bar');
+        let sideBar = document.querySelector('.side-bar');
+       
+        openSideBar.onclick = function() {
+            sideBar.style.right = 0;
+            sideBar.style.left = 0;
+        };
+        let closeSideBar = document.querySelector('.side-bar__options');
+        
+        closeSideBar.onclick = function() {
+            // console.log( sideBar);
+            sideBar.style.right = `${100}%`;
+            sideBar.style.left = `${-100}%`;
+        };
+
        }; 
 
     //    deleteEssay(essayInfoElement.querySelector('.more-icon').dataset.index);
@@ -485,6 +531,9 @@
                 }
             };
         });
+
+        
+
      </script>
 </body>
 </html>

@@ -28,12 +28,18 @@
     .header2-title {
         width: 126%;
     }
+    .header2-logo img {
+        width: 13rem;
+    }
     .essay-block-item{
         width: 40%;
     }
     .essay-block {
         overflow: inherit;
         /* width: 180%; */
+    }
+    .essays-wrapper{
+        overflow-x: scroll;
     }
     .newest::after{
         left: 0;

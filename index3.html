@@ -9,15 +9,23 @@
     <link rel="stylesheet" href="./asset/mainContentCss/content3.css">
     <link rel="stylesheet" href="./asset/footerCSS/footer.css">
     <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/responsive/index3Responsive.css">
     <title>trang 3</title>
 </head>
 <body >
     <header>
         <div class="header2-navbar header3-top ">
-            <div class="row90 flex space-between width">
+            <div class="row90 flex space-between width b">
                 <div class="header2-navbar__logo">
                     <img src="./asset/img/z4516660261248_4ed5a8e53476cfe9b0e4f2a00897578b-removebg-preview.png" alt="">
                 </div>
+                <!-- mobile -->
+                <div class="fake-div">
+                    <a href="#">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </div>
+                <!-- mobile -->
                 <div class="header2-navbar__search-box flex">
                     <div class="header2-navbar__fa-house-icon">
                         <i class="fa-solid fa-house"></i>
@@ -27,7 +35,35 @@
                         
                         <i class="ti-search"></i>
                     </button>
+                    
                 </div>
+                <!-- mobile -->
+                <div class="mobiile-more-icon ">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul class="side-bar-mobile hidden">
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-house"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-bell"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ti-more-alt"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!--  -->
                 <div class="flex">
                     <div class="header2-navbar__option-btn">
                         <i class="fa-solid fa-bell"></i>
@@ -71,15 +107,15 @@
                     </div>
                 </div>
                 <div class="main-select-btn-block flex">
-                    <div class="main-select-btn row-icon">
+                    <div class="main-select-btn row-icon active">
                         <i class="ti-menu"></i>
                     </div>
-                    <div class="main-select-btn grid-icon active">
+                    <div class="main-select-btn grid-icon a">
                         <i class="ti-layout-grid3"></i>
                     </div>
                 </div>
             </div>
-            <div class="main-content-item__wrapper center-col row-list hide">
+            <div class="main-content-item__wrapper center-col row-list ">
                 
                 <div class="main-content-item flex">
                     <div class="main-content-item__img">
@@ -129,7 +165,7 @@
                 </div>
             </div>
 
-            <div class="content-boxx-wrapper main-content-item__wrapper-grid margin-both-side flex flex-wrap grid-list ">
+            <div class="content-boxx-wrapper main-content-item__wrapper-grid margin-both-side flex flex-wrap grid-list hide">
                 <div class="content-boxx col-25">
                     <div class="content-box__imgg">
                         <img src="./asset/img/luanVanimg.jpg" alt="">
@@ -165,7 +201,7 @@
         
                 
             </div>
-            <div class="pagination flex">
+            <div class="pagination flex hide">
                 <div class="prevBtn disabled">
                     PREV
                 </div>
@@ -183,7 +219,7 @@
     <footer class="footer1">
         
         <div class="footer-info margin-both-side">
-            <div class="row ">
+            <div class="row c">
                     <div class="info col-3 center-col">
                         <div class="info-wraper">
                             <div class="info-title">Các liên kết khác</div>
