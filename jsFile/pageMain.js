@@ -9,7 +9,7 @@ const $ = document.querySelector.bind(document);
         const prevPageBtns = $$('.next-page-icon.prev-btn');
         const essayblock = $('.essay-block-item');
         const essayblockwidth = essayblock.offsetWidth;
-        console.log(essayblockwidth);
+        
         const inputBlock = $('.header2-search');
         const headerTop = $('.header2-navbar');
         const headerInput = $('.header2-navbar__search');
@@ -59,7 +59,24 @@ const $ = document.querySelector.bind(document);
           }  
         
           getListEasay();
-        //   window.location.reload();
+          
+
+
+        //   function getLatestFromArray() {
+        //     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
+        //     let latestArray = localStorage.getItem("latest-array") ? JSON.parse(localStorage.getItem("latest-array")) : [];
+        //     latestArray = listEasay.slice(0, 4);
+        //     console.log(latestArray)
+          
+        //     localStorage.setItem("latest-array", JSON.stringify(latestArray));
+        //   }
+          
+       
+        //   getLatestFromArray();
+
+
+
+
         const mainPage = {
             listEasay: localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [],
             latestArray : localStorage.getItem("latest-array") ? JSON.parse(localStorage.getItem("latest-array")) : [],
