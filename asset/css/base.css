@@ -17,7 +17,7 @@ html {
     box-sizing: border-box;
     font-family: 'roboto', arial, helvetica, sans-serif;
     font-size: 62.5%;
-   
+   scroll-behavior: smooth ;
 }
 
 
@@ -172,4 +172,12 @@ ul{
 }
 .space-between-center{
     justify-content: center;
+}
+.flex2{
+    display: flex;
+    justify-content: space-between;
+}
+.activee{
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
