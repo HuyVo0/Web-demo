@@ -62,18 +62,6 @@ const $ = document.querySelector.bind(document);
           
 
 
-        //   function getLatestFromArray() {
-        //     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
-        //     let latestArray = localStorage.getItem("latest-array") ? JSON.parse(localStorage.getItem("latest-array")) : [];
-        //     latestArray = listEasay.slice(0, 4);
-        //     console.log(latestArray)
-          
-        //     localStorage.setItem("latest-array", JSON.stringify(latestArray));
-        //   }
-          
-       
-        //   getLatestFromArray();
-
 
 
 
