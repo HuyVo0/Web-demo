@@ -200,5 +200,8 @@
         align-items: center;
         justify-content: center;
     }
+    svg{
+        display: none;
+    }
     
 }
