@@ -138,7 +138,7 @@ svg {
     border-radius: 4px;
 }
 .graduation-essay-item-icon:hover {
-    background-color: var(--background-color);
+    background-color: #051923;
     color: var(--text-color);
 
 }
