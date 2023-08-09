@@ -1,4 +1,39 @@
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  background-color: #0e4166;
+  background-image: linear-gradient(to bottom, rgba(14, 65, 102, 0.86), #0e4166);
+  z-index: -1;
+}
+
+
+
+
+
+
+.content-wrapper{
+  position: relative;
+  margin: 0;
+  padding-bottom: 64px;
+}
+
+.b{
+  padding-top: 16px;
+}
 /* info-bar */
+.graduation-essays{
+  color: #fff;
+
+}
+
+.graduation-essay-item-wrapper{
+  background-color: rgba(255, 255, 255, 0.06);
+}
 .graduation-essays-list{
     max-height: 56rem;
     
@@ -19,7 +54,7 @@
 .info-bar{
     display: flex;
     align-items: center;
-    background-color: var(--background-color);
+    background-color: #051923;
     border-radius: 6px;
     transition: all 0.3s linear;
 }
@@ -48,7 +83,7 @@
     border-bottom: 1px solid var(--seclect-color);
 }
 .graduation-essay-item:hover{
-    background-color: #ccc;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .essay-item-img .img{
     background-image: url(../img/luanVanimg.jpg);

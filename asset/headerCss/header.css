@@ -8,9 +8,7 @@
     color: var(--text-color);
     font-size: 1.8rem;
 }
-.header__nav-bar>ul>li:hover>a{
-    color: #003566;
-}
+
 ul {
     list-style: none;
 }
@@ -151,12 +149,12 @@ ul {
     border-bottom: 1px solid #ccc;
 }
 .nav__sup-nap-item:hover{
-    background-color: var(--background-color);
+    background-color: var(--seclect-color);
 }
-.nav__sup-nap-item:hover>a{
+/* .nav__sup-nap-item:hover>a{
     color: var(--text-color);
 
-}
+} */
 .nav__sup-nap-item:last-child{
     padding-bottom: 1rem;
     border-bottom: none

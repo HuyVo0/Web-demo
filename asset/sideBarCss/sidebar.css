@@ -5,12 +5,13 @@
     font-size: 2rem;
     margin: 2rem;
     font-weight: 600;
-    color: #5B86E5;
+    color: var(--text-color);
 }
 
 .side-bar__option-list {
     display: flex;
     flex-direction: column;
+    color: var(--text-color);
     /* align-items: center; */
 }
 
@@ -23,20 +24,28 @@
     padding: 1rem 2rem;
     border-radius: 4px;
    overflow: hidden;
-   height: 4.5rem ;
+   min-height: 4.5rem ;
+   background-color:  rgba(255, 255, 255, 0.1);
     transition: all 0.5s ease;
 }
 .side-bar__option-item:hover {
-    background-color: #5B86E5;
-    color: var(--text-color);
+    background-color:  rgba(255, 255, 255,0.2);
+    color: var(--text-color)
 }
 
-.side-bar__option-item:hover .search-box-text {
-  color: var(--text-color);
+.side-bar__option-item .search-box-text {
+  color: var(--text-color)
+}
+
+
+
+.side-bar__option-item .search-box-i {
+  background: var(--text-color);
 }
 .side-bar__option-item:hover .search-box-i {
   background: var(--text-color);
 }
+
 
 
 
@@ -48,43 +57,7 @@
 }
 
 
-/* .project-search-box {
-    
-    display: inline-block;
-    border-radius: 30px;
-    background-color: #fff;
-   
-}
 
-.project-search-box .project-search {
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.2rem;
-    width: 0;
-    padding: 0px;
-    transition: all 0.25s ease-in-out;
-}
-.project-search-box .search-btn{
-    background-color: transparent;
-    border: none;
-    font-size: 1.2rem;
-    border-radius: 50%;
-    padding: 8px ;
-    padding-right: 12px;
-    margin: 0;
-    
-    
-}
-.project-search-box:hover .project-search, 
-.project-search-box .project-search:valid{
-    width: 175px;
-    padding: 10px 12px;
-}
-
-.project-search-box:hover  {
-    background-color: #fff;
-} */
 /* form groud */
 .form {
     padding: 32px 24px 0;
@@ -92,16 +65,7 @@
     align-self: center;
     /* animation: fadeIn 0.2s ease; */
   }
-  /* @keyframes fadeIn {
-    from {
-      transform: translateY(-300px);
-      opacity: 0;
-    }
-    to{
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  } */
+  
   .height-increase{
     animation: scale 0.3s ease;
 

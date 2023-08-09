@@ -94,7 +94,7 @@ function renderEasy(array) {
     let easays ="";
     array.map(function (value, index) {
         easays += `<div class="graduation-essay-item-wrapper">
-                        <div class="graduation-essay-item flex">
+                        <div class="graduation-essay-item animate__animated animate__fadeInUp flex">
                             <div class="essay-item-img">
                                 <div class="img"></div>
                             </div>

@@ -72,7 +72,7 @@ const $ = document.querySelector.bind(document);
             render: function() {
                 const htmls = this.listEasay.map(function(essay,index) {
                     return `
-                        <div class="col-20 center-col margin-both-sides essay-block-item ">
+                        <div class="col-20 center-col margin-both-sides essay-block-item  scale ">
                             <div data-index ="${index}" class="essay-block">
                                 <div class="essay-content">
                                     <img src="./asset/img/luanVanimg.jpg" alt="">

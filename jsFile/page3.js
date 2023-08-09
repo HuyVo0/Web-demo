@@ -40,7 +40,7 @@ $(document).ready(function() {
         
         const htmls = array.map(function(essay,index) {
             return `
-            <div class="main-content-item flex">
+            <div class="main-content-item flex animate__animated animate__fadeInUp">
                     <div class="main-content-item__img">
                         <img src=".//asset/img/luanVanimg.jpg" alt="">
                     </div>
@@ -448,7 +448,8 @@ $(document).ready(function() {
       
    
     
-      
+    
+    
       
       
       

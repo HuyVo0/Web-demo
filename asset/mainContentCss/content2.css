@@ -1,35 +1,223 @@
 
+
+body{
+    background: linear-gradient(180deg,#003f5a ,#3d9ed4);
+  }
+  
+  .animateme {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+  }
+  
+  .bg-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .bg-bubbles li {
+    position: absolute;
+    list-style: none;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #b5e2fa;
+    bottom: 60px;
+    -webkit-animation: square 25s infinite;
+    animation: square 25s infinite;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    opacity:0;
+  }
+  
+  .bg-bubbles li:nth-child(1) {
+    left: 3%;
+    border-radius:50em;
+    background:transparent;
+    border:4px solid #48cae4;
+  }
+  .bg-bubbles li:nth-child(2) {
+    left: 6%;
+    width: 75px;
+    height: 75px;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
+    -webkit-animation-duration: 17s;
+            animation-duration: 17s;
+  }
+  .bg-bubbles li:nth-child(3) {
+    left: 15%;
+    width: 175px;
+    height: 175px;
+    -webkit-animation-delay: 4s;
+            animation-delay: 4s;
+  }
+  .bg-bubbles li:nth-child(4) {
+    left: 40%;
+    width: 90px;
+    height: 90px;
+    -webkit-animation-duration: 22s;
+            animation-duration: 22s;
+  }
+  .bg-bubbles li:nth-child(5) {
+    left: 70%;
+    background:transparent;
+    border:4px solid #caf0f8;
+  }
+  .bg-bubbles li:nth-child(6) {
+    left: 90%;
+    width: 90px;
+    height: 90px;
+    -webkit-animation-delay: 3s;
+            animation-delay: 3s;
+    border-radius:50em;
+    background:transparent;
+    border:4px solid #353535;
+  }
+  .bg-bubbles li:nth-child(7) {
+    left: 32%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation-delay: 7s;
+            animation-delay: 7s;
+    background:transparent;
+    border:4px solid #00b4d8;
+  }
+  .bg-bubbles li:nth-child(8) {
+    left: 55%;
+    width: 50px;
+    height: 50px;
+    -webkit-animation-delay: 15s;
+            animation-delay: 15s;
+    -webkit-animation-duration: 40s;
+            animation-duration: 40s;
+  }
+  .bg-bubbles li:nth-child(9) {
+    left: 30%;
+    width: 140px;
+    height: 140px;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
+    -webkit-animation-duration: 40s;
+            animation-duration: 40s;
+    border-radius:50em;
+    background:transparent;
+    border:4px solid #80ffdb;
+  }
+  .bg-bubbles li:nth-child(10) {
+    left: 90%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation-delay: 11s;
+            animation-delay: 11s;
+  }
+  .bg-bubbles li:nth-child(11) {
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    -webkit-animation-delay: 13s;
+            animation-delay: 13s;
+    border-radius:50em;
+  }
+  .bg-bubbles li:nth-child(12) {
+    left: 55%;
+    width: 175px;
+    height: 175px;
+    -webkit-animation-delay: 7s;
+            animation-delay: 7s;
+    background:transparent;
+    border:4px solid #4895ef;
+  }
+  
+  .bg-bubbles li:nth-child(13) {
+    left: 65%;
+    width: 100px;
+    height: 100px;
+    -webkit-animation-delay: 8s;
+            animation-delay: 8s;
+    border-radius:50em;
+  }
+  
+  @-webkit-keyframes square {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity:0;
+    }
+    50% {
+      opacity:1;
+    }
+    100% {
+      -webkit-transform: translateY(-700px) rotate(600deg);
+              transform: translateY(-700px) rotate(600deg);
+      opacity:1;
+    }
+  }
+  @keyframes square {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity:0;
+    }
+    50% {
+      opacity:1;
+    }
+    100% {
+      -webkit-transform: translateY(-700px) rotate(600deg);
+              transform: translateY(-700px) rotate(600deg);
+      opacity:0;
+    }
+  }
+
+
+
+
+
+
+/* ================= */
+
 .main{
    
     padding-bottom: 9.6rem;
     padding-top: 9rem;
+   
 }
 
 .content-block-header__title>h2{
     font-size: 3rem;
     text-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.8);
-    /* color: var(--text-color); */
+    color: var(--text-color);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    
 }
 .content-block-header{
     width: 100%;
 }
 .next-page-icon {
-    background-color: var(--seclect-color);
+    background-color: var(--text-color);
     border-radius: 2px;
     padding: 6px 12px;
     margin-left: 4px;
     font-size: 2rem;
     font-weight: 500;
+    transition: all 0.3s;
 }
 .next-page-icon:hover {
-    background-color: var(--background-color);
+    background-color: #1b4965;
     color: var(--text-color);
 }
 
 .essays-wrapper {
     width: 100%;
     overflow: hidden;
-    border-bottom: 1px solid var(--background-color);
+    border-bottom: 1px solid var(--text-color);
     margin-bottom: 2rem;
     
 }
@@ -43,13 +231,13 @@
 
 .essay-block-item {
     position: relative;
-    background: linear-gradient(#a2d6f9, #0077b6);
+    background: linear-gradient(180deg, rgba(255, 255, 255,0.01), rgba(255, 255, 255,0.05));
     border-radius: 8px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
     height: 40rem;
     transform: translateX(0);
     transition: all 0.5s ease;
-   
+   backdrop-filter: blur(10px);
 }
 
 
@@ -66,6 +254,7 @@
 .essay-content>img {
     width: 100%;
     height: 100%;
+    
 }
 
 .essay-content{
@@ -74,7 +263,7 @@
     top: 8px;
     left: 50%;
     transform: translateX(-50%);
-    
+    filter: drop-shadow(rgb(0, 0, 0) 0px 0px 2px);
     /* background-color: red; */
    border-radius: 8px;
     width: 80%;
@@ -112,7 +301,8 @@
     font-weight: 500;
     overflow: hidden;
     white-space: nowrap;
-    text-shadow: 0 0 3px 6px rgba(0,0,0,0.5);
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+    
 }
 .essay-leter>span>span {
     padding-right: 3px;
@@ -128,6 +318,7 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
 }
 .essay-leter>h3>span {
     font-size: 1.5rem;
@@ -136,11 +327,11 @@
 
 .essay-block-item:hover {
     transform: translateY(-30px);
-    box-shadow: 0 3px 6px 5px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,0.3);
 }
 .searched{
-        transform: translateY(-30px);
-        box-shadow: 0 3px 6px 5px rgba(9, 32, 234, 0.5);
+        transform: translateY(-30px)!important;
+        box-shadow: 0 3px 6px 5px rgba(0, 0, 0, 0.3);
     
 }
 
