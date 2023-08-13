@@ -533,7 +533,7 @@ s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.
                 deleteBtn.onclick = function() {
                     deletemodel.classList.remove('hide');
                     deletemodel.onclick = function(e) {
-                        console.log(e.target);
+                        
                         if(e.target.getAttribute('value') === 'true') {
                             deleteEssay(essayInfoElement.querySelector('.more-icon').dataset.index);
                             deletemodel.classList.add('hide');
@@ -584,7 +584,7 @@ s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.
         let closeSideBar = document.querySelector('.side-bar__options');
         
         closeSideBar.onclick = function() {
-            // console.log( sideBar);
+            
             sideBar.style.right = `${100}%`;
             sideBar.style.left = `${-100}%`;
         };
