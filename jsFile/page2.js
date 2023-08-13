@@ -1,3 +1,9 @@
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+// hàm lấy data từ json================================================================================================
 function getDataFromJSON() {
     return fetch('./json/esay.json') // Đường dẫn tới file JSON
       .then(response => response.json()) // Chuyển đổi dữ liệu thành mảng JavaScript
@@ -5,6 +11,10 @@ function getDataFromJSON() {
         console.error('Đã xảy ra lỗi:', error);
       });
   }
+
+
+
+//   hàm lấy data từ json và chuyển vào mảng
  function getListEasay() {
     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
     
@@ -15,8 +25,6 @@ function getDataFromJSON() {
           listEasay = data;
           // Lưu lại listEasay vào localStorage để sử dụng sau này
           localStorage.setItem("list-easay", JSON.stringify(listEasay));
-          
-           console.log("helo");
            window.location.reload();
         });
         
@@ -25,6 +33,7 @@ function getDataFromJSON() {
 
   getListEasay();
 
+// hàm kiểm tra dữ liệu nhập đã hợp lệ chưa ============================================================================================
 function validateInput() {
     let formElement = document.querySelector('#form-1');
     let inputElements = formElement.querySelectorAll('.form-control');
@@ -44,6 +53,9 @@ function validateInput() {
     });
 
 }
+
+
+// hàm thêm 1 luận văn mới vào =================================================================
 function addNew() {
     validateInput();
     let formElement = document.querySelector('#form-1');
@@ -60,6 +72,8 @@ function addNew() {
         let name = formElement.querySelector('#fullname').value;
         let studentCode = formElement.querySelector('#MSSV').value;
         let easayName = formElement.querySelector('#projectname').value;
+        let downloadNumbers = getRandomNumber(5, 50);
+        let viewNumbers = getRandomNumber(40, 100);
         let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
        // thêm ngày
         let currentDate = new Date();
@@ -70,7 +84,9 @@ function addNew() {
             name: name,
             MSSV: studentCode,
             easayName: easayName,
-            dateAdded: formattedDate
+            dateAdded: formattedDate,
+            downloadNumbers: downloadNumbers,
+            viewNumbers: viewNumbers
         });
         localStorage.setItem("list-easay", JSON.stringify(listEasay));
         renderEasy(listEasay);
@@ -78,17 +94,15 @@ function addNew() {
     }
 };
 
-// hàm trả về chuổi ngày tháng
+// hàm trả về chuổi ngày tháng=============================================================================
 function formatDate(date) {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
-    // const hours = String(date.getHours()).padStart(2, '0');
-    // const minutes = String(date.getMinutes()).padStart(2, '0');
-    // const seconds = String(date.getSeconds()).padStart(2, '0');
     return `${day}/${month}/${year} `;
 }
 
+// hàm render ra màn hình =================================================================================================
 function renderEasy(array) {
     
     let easays ="";
@@ -146,7 +160,7 @@ function renderEasy(array) {
     eventHandler();
 }
 
-
+// hàm chỉnh sửa thông tin luận văn======================================================================================
 function editEssay(element, index) {
     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
     let formmElement = element.parentElement.querySelector('#form-2');
@@ -159,7 +173,6 @@ function changeEssay(element, index) {
     let formmElement = element.parentElement.querySelector('#form-2');
     let newName = formmElement.querySelector('#fullname').value;
     
-
     let newMSSV = formmElement.querySelector('#MSSV').value;
     let newEasayName = formmElement.querySelector('#projectname').value;
      listEasay[index] = {
@@ -171,6 +184,9 @@ function changeEssay(element, index) {
     renderEasy(listEasay);
     eventHandler();
 }
+
+
+// hàm delete essay================================================================================================
 function deleteEssay(index) {
     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
     listEasay.splice(index, 1);
@@ -211,28 +227,40 @@ function removeVietnameseTones(str) {
 
 
 
+// hàm tìm kiếm essay ======================================================================================================
+// function searchEssayName(inputValue) {
+//     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
+//     let essaySearch = listEasay.filter(function (itemValue) {
+//         return removeVietnameseTones(itemValue.easayName.toUpperCase()).includes(removeVietnameseTones(inputValue.toUpperCase()));
+//     });
 
-function searchEssayName(inputValue) {
-    let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
-    let essaySearch = listEasay.filter(function (itemValue) {
-        return removeVietnameseTones(itemValue.easayName.toUpperCase()).includes(removeVietnameseTones(inputValue.toUpperCase()));
-    });
+//     renderEasy(essaySearch);
+// }
 
-    renderEasy(essaySearch);
-}
+// function searchAuthorName(inputValue) {
+//     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
+//     let essaySearch = listEasay.filter(function (itemValue) {
+//         return removeVietnameseTones(itemValue.name.toUpperCase()).includes(removeVietnameseTones(inputValue.toUpperCase()));
+//     });
+//     renderEasy(essaySearch);
+// }
 
-function searchAuthorName(inputValue) {
-    let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
-    let essaySearch = listEasay.filter(function (itemValue) {
-        return removeVietnameseTones(itemValue.name.toUpperCase()).includes(removeVietnameseTones(inputValue.toUpperCase()));
-    });
-    renderEasy(essaySearch);
-}
+// function searchMSSV(inputValue) {
+//     let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
+//     let essaySearch = listEasay.filter(function (itemValue) {
+//         return itemValue.MSSV.includes(inputValue);
+//     });
+//     renderEasy(essaySearch);
+// }
 
-function searchMSSV(inputValue) {
-    let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
-    let essaySearch = listEasay.filter(function (itemValue) {
-        return itemValue.MSSV.includes(inputValue);
-    });
-    renderEasy(essaySearch);
-}
+
+function searchEssayName(inputValue1, inputValue2, inputValue3) {
+        let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
+        let essaySearch = listEasay.filter(function (itemValue) {
+            let check1=  removeVietnameseTones(itemValue.easayName.toUpperCase()).includes(removeVietnameseTones(inputValue1.toUpperCase()));
+            let check2 =   removeVietnameseTones(itemValue.name.toUpperCase()).includes(removeVietnameseTones(inputValue2.toUpperCase()));
+            let check3 =   itemValue.MSSV.includes(inputValue3);
+            return check1 && check2 && check3;
+        });
+        renderEasy(essaySearch);
+    }

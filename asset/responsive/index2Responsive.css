@@ -50,7 +50,7 @@
     }
     .graduation-essays-list{
         width: 100%;
-        max-height: 80rem;
+        max-height: 110rem;
     }
     .graduation-essays{
         width: 100%;
@@ -219,6 +219,7 @@
     }
     .graduation-essays-list{
         width: 100%;
+        max-height: 65rem;
     }
     .graduation-essays{
         width: 100%;

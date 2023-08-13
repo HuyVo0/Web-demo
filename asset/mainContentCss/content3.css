@@ -175,6 +175,7 @@ select option[value="3"]  {
     text-overflow: ellipsis;
 }
 .main-content-item__name{
+    width: 100%;
     margin-right: auto;
     font-size: 2rem;
     font-weight: 200;
@@ -215,7 +216,7 @@ select option[value="3"]  {
     height: 0;
     background-color: #1d3557;
     z-index: -1;
-    transition: height  0.5s ;
+    transition: height  0.3s ;
 }
 .main-content-item__option-btn:hover{
     color: var(--text-color);
@@ -254,11 +255,15 @@ select option[value="3"]  {
 }
 .content-boxx{
     
+ 
+
     height: 25rem;
     position: relative;
     overflow: hidden;
     margin-top: 10px;
 }
+
+
 .content-box__imgg {
     position: absolute;
     z-index: 1;
@@ -309,6 +314,7 @@ select option[value="3"]  {
     top: 0;
     bottom: 0;
     background: linear-gradient(rgb(0, 0, 0,0.5),black);
+    backdrop-filter: blur(5px);
 }
 .content-boxx:hover .width-h3{
     white-space: normal;

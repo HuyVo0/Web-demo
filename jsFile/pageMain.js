@@ -20,7 +20,7 @@ const $ = document.querySelector.bind(document);
         const modelWrapperContent = $('.model-wrapper-content');
         let positionX = 0;
 
-    //  hàm lấy element cha
+    //  hàm lấy element cha==============================================
 
         function getParent(element, selector) {
             while (element.parentElement) {
@@ -68,7 +68,7 @@ const $ = document.querySelector.bind(document);
         const mainPage = {
             listEasay: localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [],
             latestArray : localStorage.getItem("latest-array") ? JSON.parse(localStorage.getItem("latest-array")) : [],
-            // hàm render ra màn hình
+            // hàm render ra màn hình================================================================================================
             render: function() {
                 const htmls = this.listEasay.map(function(essay,index) {
                     return `
@@ -89,8 +89,10 @@ const $ = document.querySelector.bind(document);
                 })
                 sliderWrapper.innerHTML = htmls.join(' ');
             },
+           
 
-            // hàm thêm dải băng mới (NEW) 
+
+            // hàm thêm dải băng mới (NEW) ============================================================================================
             addNewbar: function() {
                 
                 sliderWrapper.querySelectorAll('.essay-block-item').forEach(function(value){
@@ -100,9 +102,10 @@ const $ = document.querySelector.bind(document);
                     }
                 });
             },
+           
 
 
-            // Hàm Loại Bỏ Dấu Tìm Trên GITHUP =================================================================
+            // Hàm Loại Bỏ Dấu Tìm Trên GITHUP ===========================================================================
             removeVietnameseTones: function(str) {
                 str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
                 str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
@@ -131,8 +134,12 @@ const $ = document.querySelector.bind(document);
                 str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
                 return str;
             },
+           
+
+
+
             
-            // hàm tìm kiếm===
+            // hàm tìm kiếm==========================================================================================================
             searching: function(inputValue) {
                 const _this = this;
                 let essayWrappers = $$('.essay-block');
@@ -175,8 +182,9 @@ const $ = document.querySelector.bind(document);
                     }
                 
             },
+           
 
-            // hàm ẩn hiện header phụ
+            // hàm ẩn hiện header phụ=====================================================================================================
             headerAper: function(){
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if(scrollTop >= 450 ) {
@@ -186,8 +194,9 @@ const $ = document.querySelector.bind(document);
                     headerTop.style.top = `-65px`;
                 }
             },
+            
 
-            // hàm hiể thị nội dung ra model
+            // hàm hiể thị nội dung ra model=================================================================================================
             renderModelContent: function(index){
                 let html = `<div>
                                 <div class="model-title">
@@ -224,11 +233,11 @@ const $ = document.querySelector.bind(document);
                                 </div>
                                 <div>
                                     <i class="fa-solid fa-eye"></i>
-                                    <span>Lượt xem</span>
+                                    <span>Lượt xem ${this.listEasay[index].viewNumbers}</span>
                                 </div>
                                 <div>
                                     <i class="fa-solid fa-file-arrow-down"></i>
-                                    <span>Lượt tải</span>
+                                    <span>Lượt tải ${this.listEasay[index].downloadNumbers}</span>
                                 </div>
                                 <div>
                                     <i class="fa-solid fa-bars"></i>
@@ -238,7 +247,7 @@ const $ = document.querySelector.bind(document);
                           this.eventHandler();
             },
 
-            // hàm render ra luận văn ở mới xem khi bấm vào  
+            // hàm render ra luận văn ở "mới xem " khi bấm vào  =========================================================
             renderLatestVisit : function() {
                 let html = '';
                 
@@ -247,7 +256,9 @@ const $ = document.querySelector.bind(document);
                 });
                 document.querySelector('.slide-latest').innerHTML = html;
             },
-            //  hàm thêm vào mảng localstorage luận văn mới bấm vào
+
+
+            //  hàm thêm vào mảng localstorage luận văn mới bấm vào =========================================================
             latestVisit: function(index){
                 let _this = this;
                     let html=  `
@@ -285,10 +296,10 @@ const $ = document.querySelector.bind(document);
                 document.querySelector('.slide-latest').innerHTML = htmls;
             },
 
-            //  hàm sự kiện===========
+            //  hàm sự kiện=======================================================================================
             eventHandler: function() {
                 const _this = this;
-                // xử lí chuyển trang
+                // xử lí di chuyển trang-------------------------------------------------
                 
                 nextPageBtns.forEach(function(nextPageBtn) {
                     nextPageBtn.onclick = function() {
@@ -326,18 +337,18 @@ const $ = document.querySelector.bind(document);
                     };
                 });
 
-                // xử lí nhập tìm kiếm==
+                // xử lí nhập tìm kiếm---------------------------------------------
                 inputBlock.oninput = function() {
                     _this.searching(inputBlock.value);
                 };
                 headerInput.oninput = function() {
                     _this.searching(headerInput.value);
                 };
-                // xử lí cuộn trang
+                // xử lí cuộn trang---------------------------------------
                 window.onscroll = function() {
                     _this.headerAper();
                 }
-                // xử lí bấm bào luận văn
+                // xử lí bấm bào luận văn------------------------------------
                 
                 document.querySelectorAll('.essay-block').forEach(function(essay) {
                     
@@ -348,7 +359,7 @@ const $ = document.querySelector.bind(document);
                         _this.renderModelContent(parseInt(essay.dataset.index));
                     };
                 })
-                // xử lí tắt model
+                // xử lí tắt model--------------------------------------------------
                 modelCloseBtn.onclick = function() {
                     document.querySelector('.model').classList.add('hide');
                 }

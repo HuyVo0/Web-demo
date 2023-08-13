@@ -1,4 +1,14 @@
 $(document).ready(function() {
+
+
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+  
+
+
+
     function getDataFromJSON() {
         return fetch('./json/esay.json') // Đường dẫn tới file JSON
           .then(response => response.json()) // Chuyển đổi dữ liệu thành mảng JavaScript
@@ -35,10 +45,11 @@ $(document).ready(function() {
     let mainContentItemWrapperGrid = $('.main-content-item__wrapper-grid');
     
     let scrollPosition = 0;
-// xử lí render
+// xử lí render==================================================================================================================
     function renderList(array) {
-        
+        const randomNumber = getRandomNumber(1, 100);
         const htmls = array.map(function(essay,index) {
+            const randomNumber = getRandomNumber(1, 100);
             return `
             <div class="main-content-item flex">
                     <div class="main-content-item__img">
@@ -48,9 +59,15 @@ $(document).ready(function() {
                         <div class="main-content-item__title">
                             <h3>${essay.easayName}</h3>
                         </div>
-                        <div class="main-content-item__name flex">
-                            <span>Tác giả: </span>
-                            <h4> ${essay.name}</h4>
+                        <div class="main-content-item__name flex space-between">
+                            <div class="flex">
+                                <span>Tác giả: </span>
+                                <h4>${essay.name}</h4>
+                            </div>
+                            <div>
+                                <span>MSSV:</span>
+                                <span>${essay.MSSV}</span>
+                            </div>
                         </div>
                         <div class="main-content-item-desc">
                             <p>Lorem ipsum dolor sit amet, consectetur
@@ -69,11 +86,11 @@ $(document).ready(function() {
                         <div class="main-content-item__option-bar space-between flex">
                             <div class="main-content-item__option-btn">
                                 <i class="ti-eye"></i>
-                                <span>83</span>
+                                <span class="viewed">${essay.viewNumbers}</span>
                             </div>
                             <div class="main-content-item__option-btn">
                                 <i class="ti-download"></i>
-                                <span>12</span>
+                                <span >${essay.downloadNumbers}</span>
                             </div>
                             <div class="main-content-item__option-btn flex">
                                 <i class="ti-file"></i>
@@ -90,7 +107,7 @@ $(document).ready(function() {
         mainContentItemWrapper.html(htmls.join(' '));
     };
 
-
+// render kiểu lưới ==================================================================================================================
     function renderListGrid(array) {
         const htmls = array.map(function(essay,index) {
             return `
@@ -129,11 +146,12 @@ $(document).ready(function() {
             `
         })
         mainContentItemWrapperGrid.html(htmls.join(' '));
+       
     };
 
 
 
-    // hàm bỏ kí tự đặc biệt
+    // hàm bỏ kí tự đặc biệt==================================================================================================================
     function removeVietnameseTones(str) {
         str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
         str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
@@ -163,42 +181,26 @@ $(document).ready(function() {
         return str;
     };
 
-    // function search(inputValue) {
-    //     let essayItem = $('.main-content-item').outerHeight();
-    //     let contentItem = $('.main-content-item__title');
-    //     console.log(contentItem.length);
-    //     for(let index = 0; index <contentItem.length; index++) {
-    //         if(removeVietnameseTones(contentItem[index].innerText.toUpperCase()).includes(removeVietnameseTones(inputValue.toUpperCase()))) {
-    //             positionX = 0;
-    //             $('.content-block').scrollTop(positionX);
-    //             positionX = essayItem*index;
-    //             $('.content-block').scrollTop(positionX);
-    //             break;
-    //         }
-    //     }
-    //     if(inputValue === "") {
-    //         $('.content-block').scrollTop(0);
-    //     }
-    // };
+    //xưt lí tìm kiếm ==================================================================================================================
     function search(inputValue) {
         let essayItem = $('.main-content-item').outerHeight();
         let contentItems = $('.main-content-item__title');
       
-        let matchFound = false; // Flag to indicate if a match has been found
+        let matchFound = false; 
       
         contentItems.each(function(index) {
           let text = removeVietnameseTones($(this).text().toUpperCase());
           if (text.includes(removeVietnameseTones(inputValue.toUpperCase()))) {
-            matchFound = true; // Set the flag to true to indicate a match is found
+            matchFound = true; 
       
             let positionX = essayItem * index;
             $('.content-block').scrollTop(positionX);
       
-            return false; // Exit the loop early once the first match is found
+            return false; 
           }
         });
       
-        // If no match is found or inputValue is empty, scroll to the top
+       
         if (!matchFound || inputValue === "") {
           $('.content-block').scrollTop(0);
         }
@@ -206,7 +208,7 @@ $(document).ready(function() {
 
 
 
-    //   search grid 
+    //   search grid ==================================================================================================================
     function gridSearch(inputValue, array) {
         let essaySearch = array.filter(function (itemValue) {
             return removeVietnameseTones(itemValue.easayName.toUpperCase()).includes(removeVietnameseTones(inputValue.toUpperCase()));
@@ -217,7 +219,7 @@ $(document).ready(function() {
 
 
 
-    //   hàm đổi dạng 
+    //   hàm đổi dạng ==================================================================================================================
     function changeList (signal) {
         if(signal === 1) {
             $('.row-list').removeClass('hide');
@@ -233,7 +235,8 @@ $(document).ready(function() {
     };
 
 
-    // hàm phân trang : công thức:
+    // hàm phân trang ==================================================================================================================
+    //: công thức:
     // currentPage
     // limit = 8
     // beginGet = limit * (thisPage -1)
@@ -242,6 +245,7 @@ $(document).ready(function() {
     let limit = 8;
    
   
+ 
     
     function loadItem () {
         let beginGet = limit * (currentPage -1);
@@ -326,10 +330,73 @@ $(document).ready(function() {
         };
     
 
+    // hàm xắp xếp danh sách==================================================================================================================
+    function sort(value){
+        let listEasay = localStorage.getItem("list-easay") ? JSON.parse(localStorage.getItem("list-easay")) : [];
+        if(value === 'xem nhiều nhất') {
+            let sortedArray = listEasay;
+            for(let i = 0; i < sortedArray.length-1; i++){
+                for(let j = i+1; j < sortedArray.length; j++){
+                    if(parseInt(sortedArray[j].viewNumbers)>=parseInt(sortedArray[i].viewNumbers)) {
+                        let tem = sortedArray[i];
+                        sortedArray[i]=sortedArray[j];
+                        sortedArray[j]=tem;
+                    }
+                }
+            }
+            return sortedArray;
+        }
+        else if(value === 'tải về nhiều nhất'){
+             let sortedArray = listEasay;
+            for(let i = 0; i < sortedArray.length-1; i++){
+                for(let j = i+1; j < sortedArray.length; j++){
+                    if(parseInt(sortedArray[j].downloadNumbers)>=parseInt(sortedArray[i].downloadNumbers)) {
+                        let tem = sortedArray[i];
+                        sortedArray[i]=sortedArray[j];
+                        sortedArray[j]=tem;
+                    }
+                }
+            }
+            return sortedArray;
+        }
+        else{
+            return listEasay;
+        }
+    };
     
 
-
+    // hàm filter==================================================================================================================
+    function filterr() {
+        
+        
+        // Lấy giá trị đã chọn từ các thẻ <select>
+        let selectedNums = $('[name="nums"]').val();
+        let selectedYear = $('[name="year"]').val();
+        let selectedType = $('[name="type"]').val();
+        
+        
        
+        //lấy array đã được xắp xếp theo thứ tự
+        let sortedList = sort(selectedNums);
+        //lấy danh sách đã lọc qua các giá trị select
+        let filterList = sortedList.filter(function(item, index) {
+            let year = item.MSSV.slice(0, 2);
+           let title = removeVietnameseTones(item.easayName.toLowerCase());
+
+            let matchYear = selectedYear === "" || selectedYear === year;
+            let matchType = selectedType === "" || title.includes(removeVietnameseTones(selectedType));
+            return matchYear && matchType;
+        });
+        //render ra danh sách đã lọc
+        renderList(filterList);
+      
+    }
+    
+    // Ban đầu hiển thị tất cả các phần tử
+    filterr();
+
+
+    // xử lí sự kiện ==================================================================================================================
     function eventHandlers() {
         //    xử lí cuộn 
         $('.content-block').scroll(function() {
@@ -443,7 +510,8 @@ $(document).ready(function() {
                 
             }
         });
-         
+            // Gọi hàm filter() khi giá trị trong các thẻ <select> thay đổi
+        $('[name="nums"], [name="year"], [name="type"]').on('change', filterr);
     };
       
    
@@ -459,5 +527,6 @@ $(document).ready(function() {
     renderListGrid(listEasay);
     loadItem();
     paginationBtn();
-    eventHandlers();    
+    eventHandlers();  
+    
 });

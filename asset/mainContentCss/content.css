@@ -81,6 +81,7 @@ svg {
     padding: 16px 8px;
     border-radius: 4px;
     border-bottom: 1px solid var(--seclect-color);
+    transition: all 0.3s;
 }
 .graduation-essay-item:hover{
     background-color: rgba(255, 255, 255, 0.2);
