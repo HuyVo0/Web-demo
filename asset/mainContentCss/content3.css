@@ -47,6 +47,7 @@ a img.icon {
   position: relative;
     padding-top: 10.7rem;
     padding-bottom: 4rem;
+    min-height: 86rem;
 }
 .content-block{
    
@@ -321,7 +322,7 @@ select option[value="3"]  {
     text-shadow: 0 0 5px 6px rgba(0, 0 , 0 ,0.8);
 }
 .main-content-item__download-btn {
-    /* background-color: #1dbfaf; */
+    text-align: center;
     position: relative;
     width: 80%;
     margin: 0 auto;
