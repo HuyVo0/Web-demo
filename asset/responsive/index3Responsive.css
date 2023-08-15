@@ -9,6 +9,9 @@
     .side-bar-mobile {
         display: none;
     }
+    .f{
+        margin: 0 auto;
+    }
 }
 @media (min-width: 740px) and (max-width: 1023px) 
 {

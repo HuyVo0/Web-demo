@@ -1,13 +1,20 @@
 .footer1 {
-    background-color: #ccc;
-    
+    background-color: black;
+
 }
+.c,
+.f{
+
+    padding: 2rem 0;
+    border-bottom: 1px solid #fff;
+}
+
 .info {
     padding: 0rem 0 1rem 0;
 }
 
 .info-list{
-    border-top: 2px solid black;
+    border-top: 2px solid var(--text-color);
     padding-top: 0.8rem;
 }
 
@@ -15,12 +22,12 @@
     font-size: 2rem;
     padding: 1rem 0;
     font-weight: 500;
-    color: var(--footer-text-color);
+    color: var(--text-color)
     
 }
 .info-text{
     font-size: 1.4rem;
-    color: var(--footer-text-color);
+    color: var(--text-color);
     padding: 4px 0;
     cursor: pointer;
 }
@@ -31,11 +38,13 @@
 .info-social-icon {
     font-size: 2.5rem;
     padding: 8px;
-    color: var(--footer-text-color);
+    color: var(--text-color);
     cursor: pointer;
    
 }
-
+.info-item{
+    color: var(--text-color);
+}
 
 .info-social-icon:hover{
     color: var(--background-color);
@@ -51,7 +60,7 @@
 .class-location {
     text-decoration: none;
     font-size: 1.1rem;
-    color: var(--footer-text-color);
+    color: var(--text-color);
 }
 
 .class-location:hover{
@@ -68,6 +77,9 @@
 /* footer 2 =============================== */
 .footer2 {
     background-color:black
+}
+.footer-contact{
+    padding-top: 2rem;
 }
 .footer-contact-info {
     display: flex;
