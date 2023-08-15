@@ -210,7 +210,7 @@ body{
     transition: all 0.3s;
 }
 .next-page-icon:hover {
-    background-color: #1b4965;
+    background-color: #62b6cb;
     color: var(--text-color);
 }
 
